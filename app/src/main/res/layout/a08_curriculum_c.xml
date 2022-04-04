@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><!--suppress ALL -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/a08_subject_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:singleLine="true"
+        android:text="멀티미디어웹페이지제작"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".5" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        app:layout_constraintLeft_toRightOf="@+id/guideline1"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
+        app:srcCompat="@drawable/plan"
+        tools:ignore="MissingConstraints" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".75" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        app:layout_constraintLeft_toRightOf="@+id/guideline2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/sample_play"
+        tools:ignore="MissingConstraints" />
+
+
+    <!-- 과목명
+    <TextView
+        android:id="@+id/a08_noticeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="40dp"
+        android:singleLine="true"
+        android:text="과목명"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:typeface="sans" /-->
+
+    <!-- 수업계획서
+    <ImageView
+        android:id="@+id/a08_plan"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_toLeftOf="@+id/a08_noticeTitle"
+        android:src="@drawable/plan" /-->
+
+    <!-- 샘플강의
+    <ImageView
+        android:id="@+id/a08_play"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/sample_play" /-->
+
+
+</LinearLayout>

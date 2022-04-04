@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.egreen2.egeen2">
+
+    <queries>
+        <package android:name="com.crosscert.android"/>
+        <package android:name="com.example.services"/>
+
+    </queries>
+
+
+
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 허용 -->
+    <!--uses-permission android:name="android.permission.CALL_PHONE"/--> <!-- 전화걸기 허용 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 3g/4g 상태 접근 허용 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- wifi 상태 접근 허용 -->
+    <!--uses-permission android:name="android.permission.READ_PHONE_STATE" /--> <!-- 일련번호를 가져오기 위한 권한 허용 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:maxSdkVersion="31" />
+    <uses-permission android:name="READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STAT" /><!-- 일련번호를 가져오기 위한 권한 허용 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <uses-feature
+        android:name="android.permission.CALL_PHONE"
+        android:required="false" />
+    <uses-feature
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <application
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="e그린e러닝2"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".A02_Login" />
+        <activity android:name=".A03_JoinTerms" />
+        <activity android:name=".A03_ClickWrap" />
+        <activity android:name=".A03_PersonalInformation" />
+        <activity android:name=".A03_Trust" />
+        <activity android:name=".A03_Join" />
+        <activity android:name=".A03_JoinResult" />
+        <activity android:name=".A04_FindId" />
+        <activity android:name=".A04_FindPw" />
+        <activity android:name=".A05_NoticeWebView" />
+        <activity android:name=".A05_NoticeBoard" />
+        <activity android:name=".A06_QuickAdvice" />
+        <activity android:name=".A06_Telephone" />
+        <activity android:name=".A06_Support" />
+        <activity android:name=".A06_FAQBoard" />
+        <activity android:name=".A06_FAQWebView" />
+        <activity android:name=".A07_Guide" />
+        <activity android:name=".A07_ApplyG" />
+        <activity android:name=".A07_CertificationG"/>
+        <activity android:name=".A07_LearningG"/>
+        <activity android:name=".A08_Curriculum" />
+        <activity android:name=".A08_LearningPlan"/>
+        <activity android:name=".A09_Classroom" />
+        <activity android:name=".A10_ClassRoom"></activity>
+        <activity android:name=".A11_Apply" />
+        <activity android:name=".A12_Setting"></activity>
+        <activity android:name="A12_Info"></activity>
+        <activity android:name=".A13_Learning"></activity>
+        <activity android:name=".ClassNotiContents"></activity>
+        <activity android:name=".before_Main"></activity>
+        <activity android:name=".StudyAgreement"></activity>
+        <activity android:name=".Survey"></activity>
+        <service
+            android:name=".BackgroundService"
+            android:enabled="true"
+            android:exported="true" />
+        <activity android:name=".MainActivity" />
+
+        <activity
+            android:name=".A00_SplashScreen"
+            android:label="e그린원격평생교육원2"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".A01_Main"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

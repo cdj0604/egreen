@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F5F6"
+    tools:context=".A10_Tab1_F">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:id="@+id/juchaArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F2F5F6"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/aa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_border"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center_horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="**모바일 수강 전 한 번 읽어주세요**"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:text="- 학습기간이 지나면 출석이 인정되지 않습니다.\n- 수강 중 전화, 문자, 타 앱 실행 시 출석이 정상적으로 이루어지지 않을 수 있습니다.\n- 시험, 과제, 참여활동은 PC에서 진행해 주시길 바랍니다."
+                android:textSize="14dp" />
+
+
+        </LinearLayout>
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/aa"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_border"
+            android:orientation="vertical">
+-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/nowJuchaList"
+                android:layout_below="@id/aa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+       <!-- </LinearLayout>-->
+
+
+    </RelativeLayout>
+
+</FrameLayout>

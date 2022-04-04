@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="classArr">
+        <item>상담희망전공</item>
+        <item>컴퓨터공학</item>
+        <item>정보통신공학</item>
+        <item>멀티미디어학</item>
+        <item>경영학</item>
+        <item>e-비즈니스학</item>
+        <item>정보처리전공</item>
+        <item>정보통신전공</item>
+        <item>정보보호전공</item>
+        <item>멀티미디어전공</item>
+        <item>경영전공</item>
+        <item>지상전전공</item>
+    </string-array>
+</resources>

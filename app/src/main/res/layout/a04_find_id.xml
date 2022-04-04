@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/a04_view_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/a04_toolbar"
+            android:background="#6e42c4" />
+
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/a04_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/egreen_splash" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/a04_view_toolbar"
+            android:orientation="vertical">
+            <!--첫줄/이름-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.12"
+                    android:gravity="center"
+                    android:text="이름"
+                    android:textSize="13dp" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.88">
+
+                    <EditText
+                        android:id="@+id/a04_findIdInputName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/border"
+                        android:hint="이름을 입력해주세요."
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:textSize="13dp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--둘째줄/생년월일-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.12"
+                    android:gravity="center"
+                    android:text="생년\n월일"
+                    android:textSize="13dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.88">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.3">
+
+                        <EditText
+                            android:id="@+id/a04_findIdYear"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/border"
+                            android:enabled="false"
+                            android:hint="년"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <Spinner
+                            android:id="@+id/a04_findIdYearSpinner"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.25">
+
+                        <EditText
+                            android:id="@+id/a04_findIdMonth"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="7dp"
+                            android:background="@drawable/border"
+                            android:hint="월"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <Spinner
+                            android:id="@+id/a04_findIdMonthSpinner"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="0.25">
+
+                        <EditText
+                            android:id="@+id/a04_findIdDay"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="7dp"
+                            android:background="@drawable/border"
+                            android:hint="일"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
+
+                        <Spinner
+                            android:id="@+id/a04_findIdDaySpinner"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <!--셋째줄/이메일-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.12"
+                    android:gravity="center"
+                    android:text="이메일"
+                    android:textSize="13dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="0.88">
+
+                    <EditText
+                        android:id="@+id/a04_findIdInputEmail1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/border"
+                        android:hint="이메일"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="10dp"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\@" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
+
+                        <EditText
+                            android:id="@+id/a04_findIdInputEmail2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="7dp"
+                            android:background="@drawable/border"
+                            android:hint="[직접입력]"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="10dp"
+                            android:textSize="13dp" />
+
+                        <Spinner
+                            android:id="@+id/a04_findIdEmailSpinner"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--학번찾기 버튼-->
+            <Button
+                android:id="@+id/a04_findId_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/radius"
+                android:onClick="go_Find"
+                android:text="학번 찾기"
+                android:textColor="#FFFFFF"
+                android:textSize="19dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/navi_header"
+        app:menu="@menu/navi_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

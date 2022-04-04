@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Toolbar 시작-->
+        <View
+            android:id="@+id/a03_view_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/a03_toolbar"
+            android:background="#6e42c4" />
+
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/a03_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/egreen_splash" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!--e그린 이미지-->
+        <RelativeLayout
+            android:id="@+id/a03_relative01"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/a03_view_toolbar"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/egreen_splash" />
+        </RelativeLayout>
+
+        <!--순서-->
+        <RelativeLayout
+            android:id="@+id/a03_relative02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/a03_relative01"
+            android:layout_marginTop="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="약관동의"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@drawable/a03_1_on" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@drawable/a03_2_off" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/a03_3_off" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--소개-->
+        <TextView
+            android:id="@+id/a03_text01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/a03_relative02"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="e그린원격평생교육원에 오신 것을 환영합니다.\n\n아래 약관에 동의하시고 모바일 e러닝으로 편리하게 학습하세요"
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <!--구분선-->
+        <View
+            android:id="@+id/a03_line01"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/a03_text01"
+            android:layout_margin="20dp"
+            android:background="#BDBDBD" />
+
+        <!--약관동의-->
+        <LinearLayout
+            android:id="@+id/a03_terms_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/a03_line01"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+            <!--전체동의-->
+            <LinearLayout
+                android:id="@+id/a03_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/all_check"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모두동의" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="(필수) 회원 약관 동의" />
+
+                    <TextView
+                        android:id="@+id/a03_terms1_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="go_A03_ClickWrap"
+                        android:text="보기"
+                        android:textColor="#0000FF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="(필수) 개인정보 수집 및 이용동" />
+
+                    <TextView
+                        android:id="@+id/a03_terms2_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="go_A03_PersonalInformation"
+                        android:text="보기"
+                        android:textColor="#0000FF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal">
+
+                    <!--회원 약관동의-->
+                    <CheckBox
+                        android:id="@+id/checkBox1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="(필수) 개인정보와 공유 및 취급 위탁에 대한 \n 동의" />
+
+                    <TextView
+                        android:id="@+id/a03_terms3_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="go_A03_Trust"
+                        android:text="보기"
+
+                        android:textColor="#0000FF" />
+
+
+                    <!--개인정보 수집 및 이용동의-->
+
+
+                    <!--개인정보와 공유 및 취급 위탁-->
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--구분선-->
+        <View
+            android:id="@+id/a03_line02"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/a03_terms_group"
+            android:layout_margin="20dp"
+            android:background="#BDBDBD" />
+
+        <!--다음 버튼-->
+        <Button
+            android:id="@+id/a03_next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/a03_line02"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/radius"
+            android:onClick="go_A03_Join"
+            android:text="다음"
+            android:textColor="#FFFFFF"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/navi_header"
+        app:menu="@menu/navi_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

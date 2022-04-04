@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "336091546135",
+    "project_id": "stop-5ff48",
+    "storage_bucket": "stop-5ff48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336091546135:android:3ad8a60e07a8c7016e9252",
+        "android_client_info": {
+          "package_name": "com.egreen2.egeen2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336091546135-dshhvhshg9a850f6gbkvef25j824bvtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj-_f1ncdWSvC0f3zEwyEGQnLqfoTRMYE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336091546135-dshhvhshg9a850f6gbkvef25j824bvtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

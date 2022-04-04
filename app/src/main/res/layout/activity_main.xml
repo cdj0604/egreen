@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:background="#F2F5F6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/a01_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:elevation="4dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/egreen_splash" />
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/a01_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/a01_relative01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+                    <!--Banner-->
+                    <LinearLayout
+                        android:id="@+id/a01_banner_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_border"
+                        android:orientation="horizontal">
+                        <!--Banner Image-->
+                        <ViewFlipper
+                            android:background="@drawable/round_border"
+                            android:id="@+id/a01_bannerFlipper"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/a1_banner_Img1"
+                                android:layout_width="match_parent"
+                                android:layout_height="170dp"
+                                android:background="@drawable/round_border"
+                                android:scaleType="fitXY" />
+
+                            <ImageView
+                                android:id="@+id/a1_banner_Img2"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/round_border"
+                                android:layout_height="170dp"
+                                android:scaleType="fitXY" />
+
+                            <ImageView
+                                android:id="@+id/a1_banner_Img3"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/round_border"
+                                android:layout_height="170dp"
+                                android:scaleType="fitXY" />
+                        </ViewFlipper>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!--메뉴 레이아웃 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/round_border"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:id="@+id/a01_btn_group1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/a01_notice_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:onClick="go_A09_Classroom"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            app:srcCompat="@drawable/aa1" />
+
+                        <ImageView
+                            android:id="@+id/a01_curriculum_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:onClick="go_A11_Apply"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="10dp"
+                            app:srcCompat="@drawable/aa2" />
+
+                        <ImageView
+                            android:id="@+id/a01_guide_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:onClick="go_A06_Support"
+
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            app:srcCompat="@drawable/aa3" />
+                    </LinearLayout>
+
+                    <!--공지사항, 전체교육과정, 사용자가이드 텍스트-->
+
+
+                    <LinearLayout
+                        android:id="@+id/a01_text_group1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/a01_notice_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight=".33"
+                            android:gravity="center_horizontal"
+                            android:text="나의강의실"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/a01_curriculum_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight=".33"
+                            android:gravity="center_horizontal"
+                            android:text="수강신청"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/a01_guide_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight=".33"
+                            android:gravity="center_horizontal"
+                            android:text="학습지원"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <!--나의강의실, 수강신청, 학습지원 이미지-->
+
+
+                    <LinearLayout
+                        android:id="@+id/a01_btn_group2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/a01_classroom_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+
+                            android:onClick="go_A05_NoticeBoard"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@drawable/aa4" />
+
+                        <ImageView
+                            android:id="@+id/a01_apply_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:onClick="go_A08_Curriculum"
+                            android:paddingLeft="15dp"
+                            android:paddingRight="15dp"
+                            app:srcCompat="@drawable/aa5" />
+
+                        <ImageView
+                            android:id="@+id/a01_support_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:onClick="go_A07_Guide"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            app:srcCompat="@drawable/aa6" />
+                    </LinearLayout>
+
+                    <!--나의강의실, 수강신청, 학습지원 텍스트-->
+
+
+                    <LinearLayout
+                        android:id="@+id/a01_text_group2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/a01_classroom_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight=".33"
+                            android:gravity="center_horizontal"
+                            android:text="공지사항"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/a01_apply_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight=".33"
+                            android:gravity="center_horizontal"
+                            android:text="전체교육과정"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/a01_support_text"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight=".33"
+                            android:gravity="center_horizontal"
+                            android:text="사용자가이드"
+                            android:textColor="@color/black"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <!--공지사항, 전체교육과정, 사용자가이드 이미지-->
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <!-- 전화상담, 1:1 문의 -->
+    <RelativeLayout
+        android:id="@+id/a01_relative06"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a01_relative05"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:id="@+id/a01_btn_group3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/telephone_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight=".5"
+                android:background="@drawable/radius"
+                android:onClick="go_A06_Telephone"
+                android:text="전화상담"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/quick_advice_btn"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight=".5"
+                android:background="@drawable/radius"
+                android:onClick="go_A06_QuickAdvice"
+                android:text="1:1문의"
+                android:textColor="#FFFFFF"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:text="bold"
+        app:headerLayout="@layout/navi_header"
+        app:menu="@menu/navi_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

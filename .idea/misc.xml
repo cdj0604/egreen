@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../Library/Android/sdk/platforms/android-30/data/res/layout/simple_spinner_dropdown_item.xml" value="0.23854166666666668" />
+        <entry key="app/src/main/res/drawable-v24/ed.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/drawable-v24/ed100.xml" value="0.1965" />
+        <entry key="app/src/main/res/drawable-v24/ing.xml" value="0.1965" />
+        <entry key="app/src/main/res/drawable-v24/ing100.xml" value="0.1965" />
+        <entry key="app/src/main/res/drawable/bg_fading_edge.xml" value="0.2425" />
+        <entry key="app/src/main/res/drawable/bg_indicator_active.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/bg_indicator_inactive.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/border_black.xml" value="0.346" />
+        <entry key="app/src/main/res/drawable/border_bottom.xml" value="0.346" />
+        <entry key="app/src/main/res/drawable/border_gray.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/border_green.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/border_red.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/btn_back_color.xml" value="0.31302083333333336" />
+        <entry key="app/src/main/res/drawable/btn_emptyback_color.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/drawable/gray.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/green.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/login_btn.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/progress.xml" value="0.2395" />
+        <entry key="app/src/main/res/drawable/radius.xml" value="0.2425" />
+        <entry key="app/src/main/res/drawable/red.xml" value="0.3963541666666667" />
+        <entry key="app/src/main/res/drawable/round_border.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/round_border2.xml" value="0.2395" />
+        <entry key="app/src/main/res/drawable/round_menu.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/setting.xml" value="0.316" />
+        <entry key="app/src/main/res/drawable/support_round_menu.xml" value="0.316" />
+        <entry key="app/src/main/res/layout/a00_splash_screen.xml" value="0.1890625" />
+        <entry key="app/src/main/res/layout/a01_main.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/a02_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/a03_click_wrap.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a03_join.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a03_join_result.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/a03_join_term.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/a03_personal_information.xml" value="0.2677083333333333" />
+        <entry key="app/src/main/res/layout/a03_trust.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/a04_cs_find_id_result_alert.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/a04_cs_find_pw_result_alert.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/a04_find_id.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/a04_find_pw.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/a05_cs_notice_list.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/a05_notice_board.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/a05_notice_board_before.xml" value="0.27239583333333334" />
+        <entry key="app/src/main/res/layout/a05_notice_webview.xml" value="0.3695652173913043" />
+        <entry key="app/src/main/res/layout/a06_cs_faq_list.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a06_faq_board.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a06_faq_webview.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/a06_quick_advice.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a06_support.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a06_telephone.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/a07_apply_g.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/a07_guide.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/a07_learning_g.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/a07_learning_g_sub.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/a08_curriculum.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/a08_curriculum_c.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/a08_learning_plan.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/a08_sample.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/a09_classroom.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/a09_classroom_c.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/a09_classroom_tap.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/a09_study_center.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a10_class_romm.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a10_class_room.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/a11_apply.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/a12_info.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/a12_setting.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/a13_learning.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a7_home_attend_state_c.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/a7_home_class_noti_c.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a7_home_f.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a7_tab1_f.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/a7_tab_c.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/before_header.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/before_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/check_test.xml" value="0.21614583333333334" />
+        <entry key="app/src/main/res/layout/class_dig.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/class_noti_contents.xml" value="0.36684782608695654" />
+        <entry key="app/src/main/res/layout/navi_header.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/notify_dig.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/row.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/study_agreement.xml" value="0.3632246376811594" />
+        <entry key="app/src/main/res/layout/survey.xml" value="0.3109375" />
+        <entry key="app/src/main/res/menu/navi_menu.xml" value="0.27239583333333334" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2105" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

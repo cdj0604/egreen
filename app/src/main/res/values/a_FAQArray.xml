@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="faqArr">
+        <item>전체</item>
+        <item>학점은행제도</item>
+        <item>학습안내</item>
+        <item>오류</item>
+        <item>학습설계</item>
+        <item>회원정보</item>
+    </string-array>
+</resources>

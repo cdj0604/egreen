@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="timeArr">공
+        <item>상담희망시간</item>
+        <item>오전 09시~10시</item>
+        <item>오전 10시~11시</item>
+        <item>오전 11시~12시</item>
+        <item>오후 01시~02시</item>
+        <item>오후 02시~03시</item>
+        <item>오후 03시~04시</item>
+        <item>오후 04시~05시</item>
+        <item>오후 05시~06시</item>
+    </string-array>
+</resources>

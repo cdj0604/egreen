@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/a05_noticeImportance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp" />
+
+    <TextView
+        android:id="@+id/a05_noticeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="40dp"
+        android:layout_toRightOf="@+id/a05_noticeImportance"
+        android:singleLine="true"
+        android:text="공지 제목"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/a05_noticeDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a05_noticeTitle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/a05_noticeImportance"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="2dp"
+        android:text="2020-12-29"
+        android:textColor="#5D5D5D"
+        android:textSize="11dp"
+        android:typeface="sans" />
+
+    <ImageView
+        android:id="@+id/a05_noticeNext"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        app:srcCompat="@drawable/next" />
+
+</RelativeLayout>

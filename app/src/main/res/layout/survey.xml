@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Survey">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_bottom"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="사전설문"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- 1 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="1. 학점은행제를 알게된 경로는 무엇인가요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_A"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/a1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:checked="true"
+                    android:text="학점은행사이트" />
+
+                <RadioButton
+                    android:id="@+id/a2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="인터넷검색" />
+
+                <RadioButton
+                    android:id="@+id/a3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="미디어(지면광고, 인터넷뉴스 등)" />
+
+                <RadioButton
+                    android:id="@+id/a4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="주변인추천" />
+
+            </RadioGroup>
+
+            <!-- 2 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="2. 본원의 홈페이지를 통해 학점은행제에 대한 정보를 충분히 얻을 수 있었나요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_B"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/b1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:checked="true"
+                    android:text="매우 그렇다" />
+
+                <RadioButton
+                    android:id="@+id/b2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="그렇다" />
+
+                <RadioButton
+                    android:id="@+id/b3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="보통이다" />
+
+                <RadioButton
+                    android:id="@+id/b4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="그렇지 않다" />
+
+                <RadioButton
+                    android:id="@+id/b5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#6e42c4"
+                    android:text="매우 그렇지 않다" />
+
+            </RadioGroup>
+
+            <!-- 3 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="3. e그린원격평생교육을 어떻게 알게 되셨나요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_C"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/c1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:buttonTint="#6e42c4"
+                    android:text="학점은행 사이트내 검색" />
+
+                <RadioButton
+                    android:id="@+id/c2"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="온라인검색(포털검색, 카페검색 등)" />
+
+                <RadioButton
+                    android:id="@+id/c3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그린컴퓨터아트학원 추천" />
+
+                <RadioButton
+                    android:id="@+id/c4"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:text="광고" />
+
+            </RadioGroup>
+
+            <!-- 4 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="4. 응답자에게 효과적인 정보획득 수단은 무엇인가요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/d1"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="인터넷 검색" />
+
+                <RadioButton
+                    android:id="@+id/d2"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="미디어(지면광고, 인터넷뉴스 등)" />
+
+                <RadioButton
+                    android:id="@+id/d3"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="주변 지인" />
+
+                <RadioButton
+                    android:id="@+id/d4"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="블로그 또는 카페 게시글" />
+
+            </RadioGroup>
+
+            <!-- 5 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="5. 응답자가 생각하는 강의 시간은 어느정도가 적당한가요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_E"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/e1"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="20~30분" />
+
+                <RadioButton
+                    android:id="@+id/e2"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="30~40분" />
+
+                <RadioButton
+                    android:id="@+id/e3"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="40~50분" />
+
+                <RadioButton
+                    android:id="@+id/e4"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1시간이상" />
+
+            </RadioGroup>
+
+            <!-- 6 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="6. 응답자가 생각하는 과제물의 횟수는 어느정도가 적당한가요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_F"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/f1"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="1회" />
+
+                <RadioButton
+                    android:id="@+id/f2"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2회" />
+
+                <RadioButton
+                    android:id="@+id/f3"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3회" />
+
+                <RadioButton
+                    android:id="@+id/f4"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4회" />
+
+            </RadioGroup>
+
+            <!-- 7 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="7. 강의계획서에 제시된 채점 기준이 적절하다고 생각하시나요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_G"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/g1"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="매우 그렇다" />
+
+                <RadioButton
+                    android:id="@+id/g2"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그렇다" />
+
+                <RadioButton
+                    android:id="@+id/g3"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="보통이다" />
+
+                <RadioButton
+                    android:id="@+id/g4"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그렇지 않다" />
+
+                <RadioButton
+                    android:id="@+id/g5"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="매우 그렇지 않다" />
+
+            </RadioGroup>
+
+            <!-- 8 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="8. 강의계획서를 통해, 수강하고자 하는 과목의 학습진행에 대한 정보를 충분히 얻을 수 있었나요?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/survey_RG_H"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/h1"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="매우 그렇다" />
+
+                <RadioButton
+                    android:id="@+id/h2"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그렇다" />
+
+                <RadioButton
+                    android:id="@+id/h3"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="보통이다" />
+
+                <RadioButton
+                    android:id="@+id/h4"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그렇지 않다" />
+
+                <RadioButton
+                    android:id="@+id/h5"
+                    android:buttonTint="#6e42c4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="매우 그렇지 않다" />
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:text="9. 수업에 앞서 교수님이나 운영진에게 한마디 해주신다면?"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/comment"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_border"
+                android:gravity="start"
+                android:hint="수고하세요."
+                android:maxLines="2"
+                android:padding="7dp"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:id="@+id/regDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="날짜 : 2019-04-17" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:hint="이름을 입력해주세요" />
+
+                <Button
+                    android:id="@+id/btn_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/btn_back_color"
+                    android:text="확인 "
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

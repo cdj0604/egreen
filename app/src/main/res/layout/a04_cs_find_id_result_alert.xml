@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/a04_id_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장희원"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="님의 학번은 "
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/a04_id_strNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20101320"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입니다."
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/a04_id_login"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_back_color"
+            android:text="로그인하기"
+            android:textColor="#FFFFFF"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/a04_id_findPw"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_emptyback_color"
+            android:text="비밀번호 찾기"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

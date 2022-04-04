@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="메인">
+        <menu>
+            <item
+                android:id="@+id/home"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/home"
+                android:title="홈" />
+            <item
+                android:id="@+id/noticeboard"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/a00_notice"
+                android:title="공지사항" />
+            <item
+                android:id="@+id/curriculum"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/a00_curriculum"
+                android:title="전체교육과정" />
+
+        </menu>
+
+    </item>
+
+    <item android:title="수강">
+        <menu>
+
+            <item
+                android:id="@+id/classroom"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/a00_classroom"
+                android:title="나의강의실" />
+            <item
+                android:id="@+id/apply"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/a00_apply"
+                android:title="수강신청" />
+
+        </menu>
+    </item>
+
+
+    <item android:title="설정">
+        <menu>
+
+            <item
+                android:id="@+id/support"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/a00_support"
+                android:title="학습지원" />
+
+            <item
+                android:id="@+id/guide"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/a00_guide"
+                android:title="사용자가이드" />
+
+            <item
+                android:id="@+id/setting"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:icon="@drawable/settings"
+                android:title="설정" />
+
+
+        </menu>
+    </item>
+
+
+</menu>
