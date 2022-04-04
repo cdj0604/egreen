@@ -172,7 +172,7 @@ public class A05_NoticeBoard extends AppCompatActivity implements NetworkAsyncTa
         /* 공지사항 */
         netConnForGetNotify();
     }
-
+    //
     @Override
     protected void onStart() {
         super.onStart();
