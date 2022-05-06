@@ -59,7 +59,9 @@ public class A05_NoticeWebView extends AppCompatActivity {
         a05_noticeWV.getSettings().setSupportZoom(true);    //확대/축소 사용할 수 있도록 설정
         a05_noticeWV.getSettings().setBuiltInZoomControls(true);    //안드로이드에서 제공하는 줌 아이콘을 사용할 수 있도록 설정
         a05_noticeWV.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE); //캐시모드를 사용하지 않고 네트워크를 통해서만 호출
+        a05_noticeWV.getSettings().setUseWideViewPort(true);
         a05_noticeWV.getSettings().setLoadWithOverviewMode(true);   //웹뷰 화면에 맞게 출력
+
 
         /* A05_NoticeBoard에서 전달받은 각 URL을 WebView에 뿌려줌 */
         Intent intent = getIntent();

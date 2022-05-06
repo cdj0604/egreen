@@ -20,7 +20,7 @@ import androidx.viewpager2.widget.ViewPager2;
 public class A07_ApplyG extends AppCompatActivity {
     // 배포 전 url 변경 필요!!!
     private final String[] images = new String[]{
-            "http://cb.egreen.co.kr/mobile_proc/ApplyG/main.png",
+            "https://cb.egreen.co.kr/career_upload_files/editor_images/2022_2_hakjum_1.jpg",
             "http://cb.egreen.co.kr/mobile_proc/ApplyG/main2.png",
             "http://cb.egreen.co.kr/mobile_proc/ApplyG/apply.png",
             "http://cb.egreen.co.kr/mobile_proc/ApplyG/apply2.png",

@@ -63,7 +63,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     private static final String OVERLAP = "overlap";
     private static final String LOGOUT = "logout";
     /* 공인인증서 변수 */
-    private final String appKey = "trqfA6ksqY7JpZhVJW0VzA==";     //테스트 라이센스 (배포전 정식 라이선스 발급 요청)
+    private final String appKey = "zkt3+fvve1BLu+uoaokXxQ==";     //테스트 라이센스 7/31 (배포전 정식 라이선스 발급 요청)
     private final String[] rtnParams = {"a", "b", "c"};
     ArrayList<A09_MyClassListData> data;
     RecyclerView myClassList;

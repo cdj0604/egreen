@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_below="@+id/a05_toolbar"
-            android:background="#6e42c4" />
+            android:background="#dfe4e6" />
 
         <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/a05_toolbar"
@@ -38,6 +38,7 @@
 
 
         <!-- 공지사항 본문을 보여주는 웹뷰 -->
+
         <WebView
             android:id="@+id/a05_noticeWV"
             android:layout_width="match_parent"
