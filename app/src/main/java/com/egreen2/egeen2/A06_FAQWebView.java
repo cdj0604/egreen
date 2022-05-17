@@ -75,6 +75,8 @@ public class A06_FAQWebView extends AppCompatActivity {
         a062_faqWV.setWebChromeClient(new WebChromeClient());//웹뷰에 크롬 사용 허용//이 부분이 없으면 크롬에서 alert가 뜨지 않음
         a062_faqWV.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         a062_faqWV.clearCache(true);
+        a062_faqWV.getSettings().setLoadWithOverviewMode(true);   //웹뷰 화면에 맞게 출력
+        a062_faqWV.getSettings().setUseWideViewPort(true);
         a062_faqWV.getSettings().setTextZoom(100);  //웹뷰 폰트 크기 고정
         a062_faqWV.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         a062_faqWV.getSettings().setSupportMultipleWindows(true);

@@ -250,7 +250,7 @@ public class A02_Login extends AppCompatActivity {
                     if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
                         //하나라도 거부한다면
                         new AlertDialog.Builder(this).setTitle("알림")
-                                .setMessage("권한을 허용해 주셔야 앱을 이용할 수 있습니다.\n권한 체크가 안나올시 설정 - 애플리케이션 - e그린앱 에서 전화권한 '허용함' 으로 변경해주세요.")
+                                .setMessage("권한을 허용해 주셔야 앱을 이용할 수 있습니다.\n권한 체크가 안나올시, 설정 - 애플리케이션 - e그린앱 에서 전화권한 '허용함' 으로 변경해주세요.")
                                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {

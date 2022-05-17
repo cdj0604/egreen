@@ -86,6 +86,11 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
         //A6_StudyCenter 또는 A8_Learning 에서 전달한 학습정보를 저장
         si = (StudyInfo) getIntent().getSerializableExtra("studyInfo");
 
+        if (si.getOrientation().equals("False")) {
+            //오리엔테이션 열람 결과가 없으면 오리엔테이션을 먼저 선행 열람 해야한다.
+            showOrientationAlert();
+        }
+
 //        Log.i(TAG, "전달받은 si.id ==> " + si.getUserId());
 
         //선택된 강좌이름으로 변경된다.
@@ -462,7 +467,13 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
                 netConnForWriteOrientation();
             }
         });
-        ab.setNegativeButton("아니오", null);
+        ab.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                switchFragment(SUB);
+                setTabHighlight(SUB);
+            }
+        });
         ab.show();
     }
 

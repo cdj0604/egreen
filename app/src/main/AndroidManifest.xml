@@ -4,12 +4,10 @@
     package="com.egreen2.egeen2">
 
     <queries>
-        <package android:name="com.crosscert.android"/>
-        <package android:name="com.example.services"/>
+        <package android:name="com.crosscert.android" />
+        <package android:name="com.example.services" />
 
     </queries>
-
-
 
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 허용 -->
@@ -17,7 +15,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 3g/4g 상태 접근 허용 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- wifi 상태 접근 허용 -->
     <!--uses-permission android:name="android.permission.READ_PHONE_STATE" /--> <!-- 일련번호를 가져오기 위한 권한 허용 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:maxSdkVersion="31" />
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:maxSdkVersion="31" />
     <uses-permission android:name="READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STAT" /><!-- 일련번호를 가져오기 위한 권한 허용 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -37,10 +37,12 @@
         android:largeScreens="true"
         android:xlargeScreens="true" />
 
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
         tools:ignore="ProtectedPermissions" />
     <application
         android:allowBackup="false"
+        android:configChanges="screenSize|orientation"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="e그린e러닝2"
@@ -62,13 +64,14 @@
         <activity android:name=".A06_Telephone" />
         <activity android:name=".A06_Support" />
         <activity android:name=".A06_FAQBoard" />
+        <activity android:name=".A06_FAQ"/>
         <activity android:name=".A06_FAQWebView" />
         <activity android:name=".A07_Guide" />
         <activity android:name=".A07_ApplyG" />
-        <activity android:name=".A07_CertificationG"/>
-        <activity android:name=".A07_LearningG"/>
+        <activity android:name=".A07_CertificationG" />
+        <activity android:name=".A07_LearningG" />
         <activity android:name=".A08_Curriculum" />
-        <activity android:name=".A08_LearningPlan"/>
+        <activity android:name=".A08_LearningPlan" />
         <activity android:name=".A09_Classroom" />
         <activity android:name=".A10_ClassRoom"></activity>
         <activity android:name=".A11_Apply" />
@@ -79,17 +82,19 @@
         <activity android:name=".before_Main"></activity>
         <activity android:name=".StudyAgreement"></activity>
         <activity android:name=".Survey"></activity>
+
         <service
             android:name=".BackgroundService"
             android:enabled="true"
             android:exported="true" />
+
         <activity android:name=".MainActivity" />
 
         <activity
             android:name=".A00_SplashScreen"
+            android:exported="true"
             android:label="e그린원격평생교육원2"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

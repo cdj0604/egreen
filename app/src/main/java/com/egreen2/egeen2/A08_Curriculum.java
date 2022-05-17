@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,7 +13,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -46,7 +44,7 @@ public class A08_Curriculum extends AppCompatActivity {
     String id, userName, loginNumber;
     StudyInfo si;
     String iniUrl = "";
-    String list, list1 , list2;
+    String list, list1, list2;
     TextView textView, textView2, textView3;
     ProgressDialog loadingDialog;
     ListView a08_curriculumList;    //교육과정 리스트
@@ -74,7 +72,7 @@ public class A08_Curriculum extends AppCompatActivity {
                 try {
                     //과목명
                     doc = Jsoup.connect("https://cb.egreen.co.kr/Contents/test/list.html").get();
-                    Elements contents = doc.select("#tab01 > table > tbody > tr:nth-child(1) > td.t_l_i.f_b > a");          //회차 id값 가져오기
+                    Elements contents = doc.select("#tab01 > table > tbody > tr:nth-child(1) > td.t_l_i.f_b > a");
                     list1 = contents.text() + "\n";
 
                     for (int i = 2; i < 69; i++) {
@@ -99,8 +97,8 @@ public class A08_Curriculum extends AppCompatActivity {
                     }
 
                     bundle.putString("list1", list1);                               //핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
-                    bundle.putString("list2", list2);                               //핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
-                    bundle.putString("list", list);                               //핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
+                    bundle.putString("list2", list2);
+                    bundle.putString("list", list);
                     Message msg = handler.obtainMessage();
                     msg.setData(bundle);
                     handler.sendMessage(msg);
@@ -252,33 +250,7 @@ public class A08_Curriculum extends AppCompatActivity {
 
     }
 
-    private class WebBrowserClient extends WebViewClient {
-        @Override
-        public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            super.onPageStarted(view, url, favicon);
-//            Log.i(TAG, "시작 URL: " + url);
-            loadingDialog.show();
 
-            iniUrl = url;
-        }
-
-        @Override
-        public void onPageFinished(WebView view, String url) {
-            super.onPageFinished(view, url);
-//            Log.i(TAG, "끝 URL: " + url);
-
-            loadingDialog.dismiss();
-        }
-    }
-
-    private class WebViewClientClass extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            Log.d("check URL", url);
-            view.loadUrl(url);
-            return true;
-        }
-    }
 
     private class NetworkConnect extends AsyncTask<Void, Void, String> {
         private final String url;

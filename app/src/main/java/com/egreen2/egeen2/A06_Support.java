@@ -117,7 +117,7 @@ public class A06_Support extends AppCompatActivity {
      * 인텐트 모음
      */
     public void go_A06_FAQBoard(View view) {    //FAQ 페이지로 이동
-        Intent intent = new Intent(getApplicationContext(), A06_FAQWebView.class);
+        Intent intent = new Intent(getApplicationContext(), A06_FAQ.class);
         startActivity(intent);
 
     }

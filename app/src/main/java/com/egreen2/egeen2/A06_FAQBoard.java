@@ -256,7 +256,7 @@ public class A06_FAQBoard extends AppCompatActivity implements NetworkAsyncTaske
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     if (netCheck.isConnectionNet()) {
-                        Intent intent = new Intent(A06_FAQBoard.this, A06_FAQWebView.class);
+                        Intent intent = new Intent(A06_FAQBoard.this, A06_FAQ.class);
                         intent.putExtra("FAQ", faqListData.get(position).getFaqCid());
                         startActivity(intent);
                     } else {
