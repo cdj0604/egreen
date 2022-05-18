@@ -33,6 +33,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
  */
 
 public class A06_QuickAdvice extends AppCompatActivity implements View.OnClickListener {
+    private final Context context = this;
     /* View 변수 선언 */
     EditText a06_QAInputName, a06_QAInputPhone2, a06_QAInputPhone3, a06_QAInputAdvice;    // 이름, 핸드폰 번호, 문의사항 입력 필드
     Spinner a06_QAInputPhone1, a06_QAClassSelect, a06_QATimeSelect;    // 핸드폰 번호 앞자리, 희망 전공, 희망 시간 선택
@@ -42,7 +43,6 @@ public class A06_QuickAdvice extends AppCompatActivity implements View.OnClickLi
     /* '-'이 포함된 휴대폰 번호를 저장 */
     String phoneNumberWithHyphen;
     private DrawerLayout mDrawerLayout;
-    private final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class A06_QuickAdvice extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.a06_quick_advice);
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a06_toolbar);
+        Toolbar toolbar = findViewById(R.id.a06_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -324,7 +324,7 @@ public class A06_QuickAdvice extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onBackPressed() {   //뒤로가기 버튼을 클릭 시 드로어 레이아웃 닫기
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

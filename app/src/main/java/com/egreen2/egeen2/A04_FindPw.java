@@ -51,7 +51,7 @@ public class A04_FindPw extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a04_find_pw);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a04_toolbar);
+        Toolbar toolbar = findViewById(R.id.a04_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기

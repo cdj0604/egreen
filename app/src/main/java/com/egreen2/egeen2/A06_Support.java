@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,7 +45,7 @@ public class A06_Support extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a06_support);
         si = (StudyInfo) getIntent().getSerializableExtra("studyInfo");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a06_toolbar);
+        Toolbar toolbar = findViewById(R.id.a06_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -51,12 +53,12 @@ public class A06_Support extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.menu); //메뉴 버튼 이미지 지정
 
         ImageView imageView = findViewById(R.id.logo);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         //네비게이션 헤더에 참조할때는 아래와같이 참조해야한다.
-        TextView head_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_name);
-        TextView head_studentid = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+        TextView head_name = navigationView.getHeaderView(0).findViewById(R.id.head_name);
+        TextView head_studentid = navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
@@ -66,6 +68,25 @@ public class A06_Support extends AppCompatActivity {
         head_studentid.setText(StudentID);
 
         id = StudentID;
+
+        /**
+         * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
+         */
+        String storeVersion = "2.0.0"; //storeVersion 은 업데이트시 수기로 수정
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String versionName = packageInfo.versionName; //현재 버전 저장
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
+        AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
+        //
+
+
 //        loginNumber = si.getLoginNumber();
 
         ContentValues cValue = new ContentValues();
@@ -172,7 +193,7 @@ public class A06_Support extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {   //뒤로가기 버튼을 클릭 시 드로어 레이아웃 닫기
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

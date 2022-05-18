@@ -27,8 +27,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/logo"
@@ -79,13 +79,13 @@
                 <!--학번-->
                 <RelativeLayout
                     android:id="@+id/a02_relative02"
-                    android:background="@drawable/round_border"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/a02_relative01"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp">
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/round_border">
 
                     <LinearLayout
                         android:id="@+id/a02_Id_group"
@@ -119,10 +119,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/a02_relative02"
-                    android:background="@drawable/round_border"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginRight="20dp">
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/round_border">
 
                     <LinearLayout
                         android:id="@+id/a02_Pw_group"
@@ -141,8 +141,8 @@
                             android:id="@+id/a02_inputPW"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
-                            android:hint="비밀번호를 입력하세요"
                             android:background="@null"
+                            android:hint="비밀번호를 입력하세요"
                             android:inputType="textPassword"
                             android:maxLines="1"
                             android:paddingLeft="10dp"
@@ -154,11 +154,11 @@
                 <CheckBox
                     android:id="@+id/a02_chk_savedLoginInfo"
                     android:layout_width="160dp"
-                    android:layout_marginTop="15dp"
                     android:layout_height="wrap_content"
-                    android:text="학번 / 비밀번호 저장"
                     android:layout_marginLeft="17dp"
+                    android:layout_marginTop="15dp"
                     android:buttonTint="#6e42c4"
+                    android:text="학번 / 비밀번호 저장"
                     android:textSize="12dp" />
 
                 <!--학번/비밀번호 찾기, 저장-->
@@ -256,7 +256,6 @@
                             android:textSize="12dp" />
 
 
-
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -274,10 +273,10 @@
                         android:id="@+id/a02_login_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
                         android:text="PC와 동일한 학번과 비밀번호를 입력하여 로그인 하시면 됩니다.\n\n
 e그린원격평생교육원은 국가평생교육진흥원의 학사지침에 따라 개인정보 보안과 대리 출석을 차단하기 위해 범용공인인증서가 필요합니다."
                         android:textColor="#5D5D5D"
-                        android:layout_marginTop="50dp"
                         android:textSize="14dp" />
                 </RelativeLayout>
 
@@ -296,7 +295,7 @@ e그린원격평생교육원은 국가평생교육진흥원의 학사지침에 �
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
                         android:gravity="right"
-                        android:text="V 2.0.2"
+                        android:text="V 2.0.0"
                         android:textSize="12dp" />
 
                     <View

@@ -60,23 +60,40 @@ public class before_Main extends AppCompatActivity {
         int a = sharedPreferences1.getInt("aaa", 0);
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a01_toolbar);
+        Toolbar toolbar = findViewById(R.id.a01_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 메뉴 버튼 만들기
         actionBar.setHomeAsUpIndicator(R.drawable.menu); //메뉴 버튼 이미지 지정
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        TextView AppVersion = (TextView) navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
         String userName = sharedPreferences.getString("userName", ""); //유저이름
         String StudentID = sharedPreferences.getString("UID", ""); //유저학번
         id = StudentID;
+
+        /**
+         * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
+         */
+        String storeVersion = "2.0.0"; //storeVersion 은 업데이트시 수기로 수정
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String versionName = packageInfo.versionName; //현재 버전 저장
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
+        AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
+        //
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -123,22 +140,6 @@ public class before_Main extends AppCompatActivity {
 
         init();
 
-        /**
-         * 1.현재 설치된 앱버전, 배포된앱버전 가져오기
-         * 2.가져온 현재버전 네비게이션 헤더에 뿌려주기
-         * 최초 출시이후 다음업데이트시에 출시된 앱버전도 가져와서 뿌려주고, 자동업데이트 구현필요
-         */
-
-        try {
-            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        String versionName = packageInfo.versionName;
-        int versionCode = packageInfo.versionCode;
-        Log.d("versionName", versionName);
-        Log.d("versionCode", String.valueOf(versionCode));
-        AppVersion.setText(versionName);
 
         si = (StudyInfo) getIntent().getSerializableExtra("studyInfo");
 

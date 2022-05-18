@@ -66,9 +66,9 @@ public class CheckTest extends AppCompatActivity {
      * Layout
      */
     private void setLayout() {
-        mListView = (ListView) findViewById(R.id.main_listview);
+        mListView = findViewById(R.id.main_listview);
 
-        mAllCheckBox = (CheckBox) findViewById(R.id.main_all_check_box);
+        mAllCheckBox = findViewById(R.id.main_all_check_box);
         // 전체 체크 버튼 클릭시 Listener
         mAllCheckBox.setOnClickListener(new OnClickListener() {
             @Override

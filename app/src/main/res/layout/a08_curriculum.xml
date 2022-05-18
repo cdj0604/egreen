@@ -157,11 +157,11 @@
                         android:id="@+id/test"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:gravity="center"
-                        android:autoLink="web"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:autoLink="web"
+                        android:gravity="center"
                         android:text="과목별 상세내용은 모바일홈페이지(http://mcb.egreen.co.kr/m/default2.asp) 를 참고하여주시기를 바랍니다. "
                         android:textColor="@color/gray">
 

@@ -37,7 +37,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 
-
 public class A13_Learning extends AppCompatActivity implements NetworkAsyncTasker.AsyncResponse {
     public static final String WIFI_STATE = "WIFE";
     public static final String MOBILE_STATE = "MOBILE";
@@ -82,7 +81,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.a13_learning);
 /*
         // 현재 기기의 SDK버전이 안드로이드11 보다 크거나 같다면
@@ -92,7 +91,9 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
             window.setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN )
         }*/
 
-        출처: https://offbyone.tistory.com/428 [쉬고 싶은 개발자]
+        출처:
+        https:
+//offbyone.tistory.com/428 [쉬고 싶은 개발자]
         /* 2021.04.01 앱 캐시 지우기 코드 시작 */
         instanse = this;
         clearApplicationData();

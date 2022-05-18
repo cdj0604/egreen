@@ -39,7 +39,7 @@ public class A06_FAQWebView extends AppCompatActivity {
         setContentView(R.layout.a06_faq_webview);
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a06_toolbar);
+        Toolbar toolbar = findViewById(R.id.a06_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -49,7 +49,7 @@ public class A06_FAQWebView extends AppCompatActivity {
         /* View 연결 */
         a062_faqWV = findViewById(R.id.a06_faqWV); //FAQ
         ImageView imageView = findViewById(R.id.logo);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

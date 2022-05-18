@@ -306,7 +306,7 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
                 btn_home.setTypeface(null, Typeface.NORMAL);
                 break;
 
-                //학습현황
+            //학습현황
             case SUB:
                 btn_subject.setTextColor(ContextCompat.getColor(this, R.color.black));
                 btn_course.setTextColor(ContextCompat.getColor(this, R.color.gray));
@@ -322,7 +322,7 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
                 btn_home.setTypeface(null, Typeface.NORMAL);
                 break;
 
-                //강의목록
+            //강의목록
             case HOME:
                 btn_subject.setTextColor(ContextCompat.getColor(this, R.color.gray));
                 btn_course.setTextColor(ContextCompat.getColor(this, R.color.gray));
@@ -715,7 +715,7 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
                 // initCertyAndFinish();
 
             }
-        }) .setCancelable(false).show(); //
+        }).setCancelable(false).show(); //
     }
 
     /**

@@ -53,6 +53,15 @@ public class A08_Curriculum extends AppCompatActivity {
     //네트워크 상태 체크
     NetworkStateCheck netCheck;
     WebView webView;
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Bundle bundle = msg.getData();
+            textView.setText(bundle.getString("list1"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
+            textView2.setText(bundle.getString("list"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
+            textView3.setText(bundle.getString("list2"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
+        }
+    };
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -60,9 +69,9 @@ public class A08_Curriculum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a08_curriculum);
         si = (StudyInfo) getIntent().getSerializableExtra("studyInfo");
-        textView = (TextView) findViewById(R.id.textView);
-        textView2 = (TextView) findViewById(R.id.textView2);
-        textView3 = (TextView) findViewById(R.id.textView3);
+        textView = findViewById(R.id.textView);
+        textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
         final Bundle bundle = new Bundle();
 
         new Thread() {
@@ -110,7 +119,7 @@ public class A08_Curriculum extends AppCompatActivity {
         }.start();
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a08_toolbar);
+        Toolbar toolbar = findViewById(R.id.a08_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -126,7 +135,7 @@ public class A08_Curriculum extends AppCompatActivity {
         }
 
         /* View 연결 */
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         ImageView imageView = findViewById(R.id.logo);
 
 
@@ -138,10 +147,10 @@ public class A08_Curriculum extends AppCompatActivity {
             }
         });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         //네비게이션 헤더에 참조할때는 아래와같이 참조해야한다.
-        TextView head_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_name);
-        TextView head_studentid = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+        TextView head_name = navigationView.getHeaderView(0).findViewById(R.id.head_name);
+        TextView head_studentid = navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
@@ -192,16 +201,6 @@ public class A08_Curriculum extends AppCompatActivity {
 
     } //onCreate 종료
 
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            Bundle bundle = msg.getData();
-            textView.setText(bundle.getString("list1"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
-            textView2.setText(bundle.getString("list"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
-            textView3.setText(bundle.getString("list2"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
-        }
-    };
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -249,7 +248,6 @@ public class A08_Curriculum extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
 
     private class NetworkConnect extends AsyncTask<Void, Void, String> {

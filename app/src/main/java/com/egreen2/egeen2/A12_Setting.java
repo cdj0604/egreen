@@ -45,8 +45,9 @@ public class A12_Setting extends AppCompatActivity {
     private static final String MAIN_LIST = "mainList";
     private static final String OVERLAP = "overlap";
     private static final String LOGOUT = "logout";
-    String storeVersion = "", appVersion = "";
-    TextView name, number, nowAppVersion;
+    String storeVersion = "2.0.0", appVersion = ""; //storeVersion 은 업데이트시 수기로 수정
+    PackageInfo packageInfo = null;
+    TextView name, number, nowAppVersion, LatestAppVersion;
     StudyInfo si;
     Button button, updatebtn;
     String versionName;
@@ -56,7 +57,9 @@ public class A12_Setting extends AppCompatActivity {
     String loginNumber;
     NetworkStateCheck netCheck;
     NetworkAsyncTasker asyncTask;
+
     private DrawerLayout mDrawerLayout;
+
 
     public static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
@@ -90,29 +93,51 @@ public class A12_Setting extends AppCompatActivity {
         ImageView imageView = findViewById(R.id.logo);
         // Button go_info = (Button) findViewById(R.id.go_info);
 
-        final Switch sw = (Switch) findViewById(R.id.switch2);
-        final Switch sw1 = (Switch) findViewById(R.id.switch1);
-        name = (TextView) findViewById(R.id.a12_name);
-        number = (TextView) findViewById(R.id.a12_number);
-        button = (Button) findViewById(R.id.button2);
-        updatebtn = (Button) findViewById(R.id.button3);
-        nowAppVersion = (TextView) findViewById(R.id.nowAppVersion);
+        final Switch sw = findViewById(R.id.switch2);
+        final Switch sw1 = findViewById(R.id.switch1);
+        name = findViewById(R.id.a12_name);
+        number = findViewById(R.id.a12_number);
+        button = findViewById(R.id.button2);
+        updatebtn = findViewById(R.id.button3);
+        nowAppVersion = findViewById(R.id.nowAppVersion);
+        LatestAppVersion = findViewById(R.id.LatestVersion);
+
+
         sw1.setChecked(true);
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a12_toolbar);
+        Toolbar toolbar = findViewById(R.id.a12_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 메뉴 버튼 만들기
         actionBar.setHomeAsUpIndicator(R.drawable.menu); //메뉴 버튼 이미지 지정
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         //네비게이션 헤더에 참조할때는 아래와같이 참조해야한다.
 
-        TextView head_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_name);
-        TextView head_studentid = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+        TextView head_name = navigationView.getHeaderView(0).findViewById(R.id.head_name);
+        TextView head_studentid = navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+
+        /**
+         * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
+         */
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String versionName = packageInfo.versionName; //현재 버전 저장
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
+        AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
+
+        //최신 앱 버전은 배포후 스토어 링크를 통해 가져와야함 ( 업데이트시에 추가 )
+        nowAppVersion.setText("현재 앱 버전 : " + versionName);
+        LatestAppVersion.setText("최신 앱 버전 : " + storeVersion);
+
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
@@ -136,7 +161,7 @@ public class A12_Setting extends AppCompatActivity {
         int a = sharedPreferences.getInt("login", 0);
         int a1 = sharedPreferences1.getInt("다시보지않기", 0);
 
-        getAppVersionName();
+
         /*ContentValues cValue = new ContentValues();
         cValue.put("userid", id);
         String url = "http://cb.egreen.co.kr/mobilee_proc/join/join_proc_m2.asp";
@@ -146,8 +171,6 @@ public class A12_Setting extends AppCompatActivity {
         updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //업데이트시 출시 할 버전으로 수정
-                storeVersion = "2.0.2";
 
                 if (versionName.equals(storeVersion)) {
                     //최신버전일때
@@ -239,9 +262,6 @@ public class A12_Setting extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        //최신 앱 버전은 배포후 스토어 링크를 통해 가져와야함 ( 업데이트시에 추가 )
-        nowAppVersion.setText("현재 앱 버전 : " + versionName);
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -373,21 +393,6 @@ public class A12_Setting extends AppCompatActivity {
 
     }          //로그인 페이지로 이동
 
-    //앱버전 명
-    public void getAppVersionName() {
-        PackageInfo packageInfo = null;         //패키지에 대한 전반적인 정보
-
-        //PackageInfo 초기화
-        try {
-            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-
-        }
-
-        versionName = packageInfo.versionName;
-        versionCode = packageInfo.versionCode;
-    }
 
     // 기존코드 : 왼쪽 상단 클릭시 메뉴 네비게이션 나오
     public boolean onOptionsItemSelected(MenuItem item) {

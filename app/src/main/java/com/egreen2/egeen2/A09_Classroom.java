@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -123,7 +124,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.a09_classroom);
         //  doLicense();
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a09_toolbar);
+        Toolbar toolbar = findViewById(R.id.a09_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -132,8 +133,8 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
 
 
         // result_text=(TextView)findViewById(R.id.result_text);
-        TextView username = (TextView) findViewById(R.id.username);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        TextView username = findViewById(R.id.username);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         swipeRefresh = findViewById(R.id.swipeRefresh);
         myClassList = findViewById(R.id.myClassList);
         ImageView imageView = findViewById(R.id.logo);
@@ -156,10 +157,12 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
         });
 
 */
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
         //네비게이션 헤더에 참조할때는 아래와같이 참조해야한다.
-        TextView head_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_name);
-        TextView head_studentid = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+        TextView head_name = navigationView.getHeaderView(0).findViewById(R.id.head_name);
+        TextView head_studentid = navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
@@ -173,6 +176,23 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
         loginNumber = si.getLoginNumber();
         // Intent intentt = getIntent();
         // loginNumber = intentt.getStringExtra("studyinfo");
+
+        /**
+         * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
+         */
+        String storeVersion = "2.0.0"; //storeVersion 은 업데이트시 수기로 수정
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String versionName = packageInfo.versionName; //현재 버전 저장
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
+        AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
+        //
 
 
         imageView.setOnClickListener(new View.OnClickListener() {
@@ -344,7 +364,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 public void onClick(View view) {
                     dialog.dismiss(); // 다이얼로그 닫기
                     overlap_proc(result); //앱 출시 시에는 이코드
-                   // checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+                    // checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
             dialog.show();
@@ -565,7 +585,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
         intent.putExtra("studyInfo", si);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-       // finish();
+        // finish();
     }
 
     /**

@@ -35,14 +35,13 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-
     <LinearLayout
-        android:background="#F2F5F6"
         android:id="@+id/btn_Tab"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="#F2F5F6"
+        android:orientation="vertical">
 
         <View
             android:id="@+id/a07_view_toolbar"
@@ -59,8 +58,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <Button
@@ -81,9 +80,9 @@
                 <Button
                     android:id="@+id/btn_subject"
                     android:layout_width="40dp"
-                    android:layout_marginTop="5dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/list" />
 
 
@@ -100,8 +99,8 @@
                     android:id="@+id/btn_course"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="5dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/list" />
             </LinearLayout>
 

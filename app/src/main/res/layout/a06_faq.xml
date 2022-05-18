@@ -101,7 +101,7 @@
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
                                 android:linksClickable="true"
-                                android:text="필수적으로 공인인증서는 개인인증서가 아닌 4,400원을 지불하여 발급받은 범용 공동인증서여야만 합니다\nPC에서 범용 공동인증서로 정상적으로 노출이 된다면 PC->모바일로 복사하는과정에서 오류가 발생한것입니다\n'한국전자인증' 앱을 설치한 후 해당 앱을 통해서 복사하기로 가져와야 정상 노출됩니다.\n해당앱 을 통해 정상적으로 '범용 공동인증서'를 가져왔지만, 노출이 안 되는경우에는 한국전자인증고객센터(1566-0566)으로 문의하여 주시기 바랍니다."
+                                android:text="필수적으로 공인인증서는 개인인증서가 아닌 4,400원을 지불하여 발급받은 범용 공동인증서여야만 하고, '통합인증센터(한국전자인증)'어플이 설치되어 있어야 합니다.\nPC에서 범용 공동인증서로 정상적으로 노출이 된다면, PC->모바일로 복사하는과정에서 오류가 발생한것입니다\n'통합인증센터(한국전자인증)' 앱을 설치한 후 해당 앱을 통해서 복사하기로 가져와야 정상 노출됩니다.\n해당앱 을 통해 정상적으로 '범용 공동인증서'를 가져왔지만, 노출이 안 되는경우에는 한국전자인증고객센터(1566-0566)으로 문의하여 주시기 바랍니다."
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
                                 android:textStyle="bold"
@@ -119,8 +119,8 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:background="@drawable/round_border"
-                        android:orientation="horizontal"
                         android:onClick="q2"
+                        android:orientation="horizontal"
                         android:padding="10dp">
 
                         <LinearLayout
@@ -146,7 +146,6 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
-                                android:visibility="gone"
                                 android:text="이런 경우에는 네트웍의 연결이 끊어졌기 때문에 동영상을 다시 재생시켜 청취하셔야 합니다.
 
 
@@ -160,7 +159,8 @@
 "
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 
@@ -178,6 +178,7 @@
                         android:padding="10dp">
 
                         <LinearLayout
+                            android:onClick="q3"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -187,23 +188,30 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Q.강의실 진입시 공인인증서가 보이지 않습니다."
+                                android:text="Q.중복로그인 알림이 계속 떠요."
                                 android:textColor="#000000"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/a3"
-                                android:visibility="gone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
-                                android:text="의하여 주시기 바랍니다."
+
+                                android:text=" [중복로그인 발생 예시]\n
+1. 현재 로그인 된 상태에서 다른 브라우저(IE, 크롬, 엣지등)에서 다시 로그인 시\n
+2. PC에서 로그인 중 모바일 앱에서 로그인 시(반대도 동일)\n
+3. 2대 이상 PC사용 시 현재 로그인 된 상태에서 다른PC에서 로그인 시\n
+최초 접속한 브라우저에서 중복로그인 알림이 보이게 되며 자동로그아웃 됩니다.\n\n
+다시 로그인 하시면 되며 이로 인한 불이익은 발생하지 않습니다.\n
+참고로 본 기능은 평진원에서 수강 시 중복로그인을 허용하지 않기에 기능적용 되어 있습니다."
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 
@@ -231,7 +239,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Q.강의실 진입시 공인인증서가 보이지 않습니다."
+                                android:text="Q.진도처리가 되지않아요."
                                 android:textColor="#000000"
                                 android:textSize="15dp"
                                 android:textStyle="bold" />
@@ -243,11 +251,11 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
-                                android:visibility="gone"
                                 android:text="의하여 주시기 바랍니다."
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 
@@ -288,11 +296,11 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
-                                android:visibility="gone"
                                 android:text="의하여 주시기 바랍니다."
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 

@@ -25,14 +25,14 @@ public class A08_LearningPlan extends AppCompatActivity {
         setContentView(R.layout.a08_learning_plan);
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a08_toolbar);
+        Toolbar toolbar = findViewById(R.id.a08_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 메뉴 버튼 만들기
         actionBar.setHomeAsUpIndicator(R.drawable.back); // 메뉴 버튼 이미지 지정
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
     }
 
 

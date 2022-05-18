@@ -18,7 +18,7 @@ public class A12_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a12_info);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a07_toolbar);
+        Toolbar toolbar = findViewById(R.id.a07_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기

@@ -65,7 +65,7 @@ public class A06_FAQBoard extends AppCompatActivity implements NetworkAsyncTaske
         setContentView(R.layout.a06_faq_board);
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a06_toolbar);
+        Toolbar toolbar = findViewById(R.id.a06_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -75,7 +75,7 @@ public class A06_FAQBoard extends AppCompatActivity implements NetworkAsyncTaske
         /* View 연결 */
         ImageView imageView = findViewById(R.id.logo);
         a061_FAQList = findViewById(R.id.a06_faqList); //공지사항
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         a061_FAQSelect = findViewById(R.id.a06_FAQSelect);
 
         si = (StudyInfo) getIntent().getSerializableExtra("studyInfo");
@@ -117,10 +117,10 @@ public class A06_FAQBoard extends AppCompatActivity implements NetworkAsyncTaske
         });
 
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         //네비게이션 헤더에 참조할때는 아래와같이 참조해야한다.
-        TextView head_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_name);
-        TextView head_studentid = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+        TextView head_name = navigationView.getHeaderView(0).findViewById(R.id.head_name);
+        TextView head_studentid = navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
@@ -326,7 +326,7 @@ public class A06_FAQBoard extends AppCompatActivity implements NetworkAsyncTaske
 
     @Override
     public void onBackPressed() {   //뒤로가기 버튼을 클릭 시 드로어 레이아웃 닫기
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

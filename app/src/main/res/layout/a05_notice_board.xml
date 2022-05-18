@@ -40,8 +40,6 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-
-
         <!-- 공지사항 -->
         <RelativeLayout
             android:layout_width="match_parent"

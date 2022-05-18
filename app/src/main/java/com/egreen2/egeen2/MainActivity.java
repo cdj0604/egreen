@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private final Context context = this;
     // ** View 변수 선언 **
+    String storeVersion = "2.0.0", appVersion = ""; //storeVersion 은 업데이트시 수기로 수정
     ViewFlipper a1_bannerFlipper;   // 배너
     ImageView a1_bannerImg1, a1_bannerImg2, a1_bannerImg3;  // Flipper에 들어가는 이미지
     PackageInfo packageInfo = null;
@@ -73,19 +74,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a01_toolbar);
+        Toolbar toolbar = findViewById(R.id.a01_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 메뉴 버튼 만들기
         actionBar.setHomeAsUpIndicator(R.drawable.menu); //메뉴 버튼 이미지 지정
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        TextView head_name = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_name);
-        TextView head_studentid = (TextView) navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
-        TextView AppVersion = (TextView) navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        TextView head_name = navigationView.getHeaderView(0).findViewById(R.id.head_name);
+        TextView head_studentid = navigationView.getHeaderView(0).findViewById(R.id.head_StudentID);
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
 
         //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
@@ -175,11 +177,12 @@ public class MainActivity extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        String versionName = packageInfo.versionName;
+        String versionName = packageInfo.versionName; //현재 버전 저장
         int versionCode = packageInfo.versionCode;
         Log.d("versionName", versionName);
         Log.d("versionCode", String.valueOf(versionCode));
         AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
 
 
        /* try {

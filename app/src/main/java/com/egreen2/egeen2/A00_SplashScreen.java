@@ -66,7 +66,7 @@ public class A00_SplashScreen extends AppCompatActivity {
         anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha);
 
         //업데이트시 스토어버전 수정
-        storeVersion = "2.0.2";
+        storeVersion = "2.0.0";
 
         if (!versionName.equals(storeVersion)) {
             android.app.AlertDialog.Builder ab1 = new android.app.AlertDialog.Builder(this);

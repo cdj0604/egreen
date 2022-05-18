@@ -13,7 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class A06_FAQ extends AppCompatActivity {
 
-    TextView a1, a2;
+    TextView a1, a2, a3, a4, a5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class A06_FAQ extends AppCompatActivity {
         setContentView(R.layout.a06_faq);
 
         /* Toolbar */
-        Toolbar toolbar = (Toolbar) findViewById(R.id.a06_toolbar);
+        Toolbar toolbar = findViewById(R.id.a06_toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
@@ -29,25 +29,35 @@ public class A06_FAQ extends AppCompatActivity {
         actionBar.setHomeAsUpIndicator(R.drawable.back); //메뉴 버튼 이미지 지정
         a1 = findViewById(R.id.a1);
         a2 = findViewById(R.id.a2);
+        a3 = findViewById(R.id.a3);
 
 
     }
 
     //문의 클릭시 문의답변 보여주기
     public void q1(View view) {
-        if (a1.getVisibility() == view.GONE) {
-            a1.setVisibility(a1.VISIBLE);
+        if (a1.getVisibility() == View.GONE) {
+            a1.setVisibility(View.VISIBLE);
         } else {
-            a1.setVisibility(view.GONE);
+            a1.setVisibility(View.GONE);
         }
 
     }
 
     public void q2(View view) {
-        if (a2.getVisibility() == view.GONE) {
-            a2.setVisibility(a2.VISIBLE);
+        if (a2.getVisibility() == View.GONE) {
+            a2.setVisibility(View.VISIBLE);
         } else {
-            a2.setVisibility(view.GONE);
+            a2.setVisibility(View.GONE);
+        }
+
+    }
+
+    public void q3(View view) {
+        if (a3.getVisibility() == View.GONE) {
+            a3.setVisibility(View.VISIBLE);
+        } else {
+            a3.setVisibility(View.GONE);
         }
 
     }
@@ -65,7 +75,7 @@ public class A06_FAQ extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {   //뒤로가기 버튼을 클릭 시 드로어 레이아웃 닫기
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

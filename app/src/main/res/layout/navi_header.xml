@@ -48,9 +48,9 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:text="이름"
-                android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/head_StudentID"
@@ -58,9 +58,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="학번"
-                android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -75,9 +75,9 @@
             android:background="#00ff0000"
             android:onClick="go_logout"
             android:text="로그아웃"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="12dp"
+            android:textStyle="bold"
             android:visibility="visible" />
 
     </LinearLayout>
@@ -120,7 +120,7 @@
                 android:id="@+id/AppVersion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.0.2"
+                android:text="현재앱버전"
                 android:textColor="@color/gray"
                 android:textSize="8dp" />
             <!--
@@ -130,7 +130,7 @@
                 android:id="@+id/StroeVersion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.0.2"
+                android:text="최신앱버전"
                 android:textColor="@color/gray"
                 android:textSize="8dp" />
         </LinearLayout>
