@@ -13,7 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class A06_FAQ extends AppCompatActivity {
 
-    TextView a1, a2, a3, a4, a5;
+    TextView a1, a2, a3, a4, a5,a6,a7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,11 @@ public class A06_FAQ extends AppCompatActivity {
         a1 = findViewById(R.id.a1);
         a2 = findViewById(R.id.a2);
         a3 = findViewById(R.id.a3);
+        a4 = findViewById(R.id.a4);
+        a5 = findViewById(R.id.a5);
+        a6 = findViewById(R.id.a6);
+        a7 = findViewById(R.id.a7);
+
 
 
     }
@@ -58,6 +63,42 @@ public class A06_FAQ extends AppCompatActivity {
             a3.setVisibility(View.VISIBLE);
         } else {
             a3.setVisibility(View.GONE);
+        }
+
+    }
+
+    public void q4(View view) {
+        if (a4.getVisibility() == View.GONE) {
+            a4.setVisibility(View.VISIBLE);
+        } else {
+            a4.setVisibility(View.GONE);
+        }
+
+    }
+
+    public void q5(View view) {
+        if (a5.getVisibility() == View.GONE) {
+            a5.setVisibility(View.VISIBLE);
+        } else {
+            a5.setVisibility(View.GONE);
+        }
+
+    }
+
+    public void q6(View view) {
+        if (a6.getVisibility() == View.GONE) {
+            a6.setVisibility(View.VISIBLE);
+        } else {
+            a6.setVisibility(View.GONE);
+        }
+
+    }
+
+    public void q7(View view) {
+        if (a7.getVisibility() == View.GONE) {
+            a7.setVisibility(View.VISIBLE);
+        } else {
+            a7.setVisibility(View.GONE);
         }
 
     }

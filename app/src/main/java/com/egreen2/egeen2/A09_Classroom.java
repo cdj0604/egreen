@@ -404,9 +404,9 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
 
             if (isEnable) {
                 if (getIsNeedCerty() == false && savedCertyState.getBoolean("certyState", false) == false) {
-                    isLoginCerty();
+                   checkDong_Servey();
                 } else {
-                    checkDong_Servey();
+                    isLoginCerty();
                 }
             } else {
                 //모바일 수강 불가능한 과목이면 Alert를 띄운다.
