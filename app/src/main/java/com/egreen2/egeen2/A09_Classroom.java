@@ -404,9 +404,11 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
 
             if (isEnable) {
                 if (getIsNeedCerty() == false && savedCertyState.getBoolean("certyState", false) == false) {
-                   checkDong_Servey();
-                } else {
                     isLoginCerty();
+                    //출시시엔 여기에 checkDong_Server() 넣기
+
+                } else {
+                    checkDong_Servey();
                 }
             } else {
                 //모바일 수강 불가능한 과목이면 Alert를 띄운다.
@@ -581,7 +583,8 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
      * A10_ClassRoom 으로 이동
      */
     private void goClassRoom() {
-        Intent intent = new Intent(this, A10_ClassRoom.class);
+        Intent intent = new Intent(getApplicationContext(), A10_ClassRoom.class);
+       // Intent intent = new Intent(this, A10_ClassRoom.class);
         intent.putExtra("studyInfo", si);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

@@ -291,6 +291,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void go_logout() {
+        SharedPreferences sharedPreferences = getSharedPreferences("autologin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("login", 2);
+        editor.commit();
         Intent intent = new Intent(getApplicationContext(), before_Main.class);
         startActivity(intent);
 

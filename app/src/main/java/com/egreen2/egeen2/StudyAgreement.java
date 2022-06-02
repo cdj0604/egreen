@@ -280,7 +280,8 @@ public class StudyAgreement extends AppCompatActivity {
         AlertDialog.Builder ab = new AlertDialog.Builder(this);
         ab.setMessage("학습동의서를 완료했습니다\n감사합니다.");
         ab.setCancelable(false);
-        ab.setPositiveButton("강의목록으로 이동", new DialogInterface.OnClickListener() {
+        //학습동의서 완료후 설문조사 페이지로 이동 or 설문조사 완료됐다면 강의실로 이동
+        ab.setPositiveButton("사전설문조사 하기", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 moveToA09_Classroom();
@@ -293,13 +294,14 @@ public class StudyAgreement extends AppCompatActivity {
     /**
      * A6_StudyCenter로 이동
      */
+    //학습동의서 완료후 설문조사 페이지로 이동 or 설문조사 완료됐다면 강의실로 이동
     private void moveToA09_Classroom() {
         SharedPreferences savedCertyState = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
         SharedPreferences.Editor editor = savedCertyState.edit();
         editor.putBoolean("certyState", true);
         editor.commit();
 
-        Intent intent = new Intent(this, A09_Classroom.class);
+        Intent intent = new Intent(this, Survey.class);
         intent.putExtra("studyInfo", si);
         startActivity(intent);
         finish();

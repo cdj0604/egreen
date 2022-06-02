@@ -254,18 +254,18 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-                        android:onClick="q5"
                         android:background="@drawable/round_border"
+                        android:onClick="q5"
                         android:orientation="horizontal"
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:onClick="q5"
                             android:id="@+id/q5"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
                             android:layout_weight="0.66"
+                            android:onClick="q5"
                             android:orientation="vertical">
 
                             <TextView
@@ -294,15 +294,15 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:onClick="q6"
                         android:id="@+id/q6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
-
                         android:background="@drawable/round_border"
+
+                        android:onClick="q6"
                         android:orientation="horizontal"
                         android:padding="10dp">
 
@@ -330,18 +330,17 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
-                                android:visibility="gone"
                                 android:text="수강신청 방법은 앱 메인화면 - 사용자가이드 - 수강신청 에 안내되어있습니다.\n방법이 어렵거나 진행이 잘 안될경우 홈페이지(PC)환경에서 신청해주시거나 문의하여 주시면 감사하겠습니다."
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:onClick="q7"
                         android:id="@+id/q7"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -350,6 +349,52 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/round_border"
+                        android:onClick="q7"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/a06_consultingTTextFrame"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="0.66"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Q.시험응시관련문의"
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/a7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:autoLink="phone"
+                                android:text="시험은 학습시작 후 7주차에 중간고사가 있으며, 기말고사는 15주차에 치뤄집니다.\n시험시간은 50분 이며, 제한된 시간내에는 다시 접속 후 이어서 응시하실 수 있습니다.\n정해진 시험 기간 외에는 응시가 불가능하므로, 시험안내 공지를 숙지하시어 불이익을 당하시는 일이 없도록 주의하시기 바랍니다.\n추가로 시험응시는 모바일이 아닌 PC환경(맥OS제외) 윈도우OS 에서만 응시가능 합니다. "
+                                android:textColor="@color/gray"
+                                android:textSize="10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/round_border"
+                        android:onClick="q8"
                         android:orientation="horizontal"
                         android:padding="10dp">
 
@@ -370,17 +415,109 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/a7"
+                                android:id="@+id/a8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="10dp"
                                 android:autoLink="phone"
-                                android:visibility="gone"
                                 android:text="학습기준에 대한 질문과, 상담이 필요할 경우 앱 메인화면의 학습지원-전화상담 을 통해 연락주시거나 (1544-8463) 으로 연락주시기 바랍니다.\n그 외 빠른 학습 상담을 이용하여 상담신청을 남겨주시면 작성정보에 맞추어 희망시간에 연락드리겠습니다."
                                 android:textColor="@color/gray"
                                 android:textSize="10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/q7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/round_border"
+                        android:onClick="q9"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/a06_consultingTTextFrame"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="0.66"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Q.학습안내 및 학습설계를 받고싶습니다."
+                                android:textColor="#000000"
+                                android:textSize="15dp"
                                 android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/a9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:autoLink="phone"
+                                android:text="학습기준에 대한 질문과, 상담이 필요할 경우 앱 메인화면의 학습지원-전화상담 을 통해 연락주시거나 (1544-8463) 으로 연락주시기 바랍니다.\n그 외 빠른 학습 상담을 이용하여 상담신청을 남겨주시면 작성정보에 맞추어 희망시간에 연락드리겠습니다."
+                                android:textColor="@color/gray"
+                                android:textSize="10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/q7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/round_border"
+                        android:onClick="q10"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/a06_consultingTTextFrame"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="0.66"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Q.학습안내 및 학습설계를 받고싶습니다."
+                                android:textColor="#000000"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/a10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="10dp"
+                                android:autoLink="phone"
+                                android:text="학습기준에 대한 질문과, 상담이 필요할 경우 앱 메인화면의 학습지원-전화상담 을 통해 연락주시거나 (1544-8463) 으로 연락주시기 바랍니다.\n그 외 빠른 학습 상담을 이용하여 상담신청을 남겨주시면 작성정보에 맞추어 희망시간에 연락드리겠습니다."
+                                android:textColor="@color/gray"
+                                android:textSize="10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 

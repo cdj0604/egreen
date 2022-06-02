@@ -239,8 +239,13 @@ public class A05_NoticeBoard extends AppCompatActivity implements NetworkAsyncTa
         builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
+                SharedPreferences sharedPreferences = getSharedPreferences("autologin", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("login", 2);
+                editor.commit();
                 Intent intent = new Intent(getApplicationContext(), before_Main.class);
                 startActivity(intent);
+
 
             }
         });
