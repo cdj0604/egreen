@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F2F5F6">
 
     <!--Toolbar-->
     <RelativeLayout
@@ -161,7 +162,6 @@
                             android:layout_height="match_parent"
                             android:layout_marginLeft="7dp"
                             android:background="@drawable/border"
-                            android:enabled="false"
                             android:hint="월"
                             android:inputType="textEmailAddress"
                             android:paddingLeft="10dp"

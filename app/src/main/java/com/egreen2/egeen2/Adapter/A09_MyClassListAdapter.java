@@ -75,11 +75,11 @@ public class A09_MyClassListAdapter extends RecyclerView.Adapter {
         String studyDate_txt1;
         if (isEnable) {
             if (data.get(position).getStudyDate().equals("0")) {
-                studyDate_txt = "출석기간이 아닙니다. 접속시 오류가 발생합니다.";
+                studyDate_txt = "출석기간이 아닙니다.";
                 v.studyDate.setText(studyDate_txt);
-                v.studyDate.setTextColor(ContextCompat.getColor(context, R.color.red));
+                v.studyDate.setTextColor(ContextCompat.getColor(context, R.color.gray));
             } else {
-                studyDate_txt =  data.get(position).getStudyDate() + " 진행중";
+                studyDate_txt = data.get(position).getStudyDate() + " 진행중";
                 v.studyDate.setText(studyDate_txt);
                 v.studyDate.setTextColor(ContextCompat.getColor(context, R.color.black));
             }

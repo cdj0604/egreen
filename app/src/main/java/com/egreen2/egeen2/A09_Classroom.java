@@ -363,10 +363,12 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void onClick(View view) {
                     dialog.dismiss(); // 다이얼로그 닫기
-                    overlap_proc(result); //앱 출시 시에는 이코드
-                    // checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+
+                    // overlap_proc(result); //앱 출시 시에는 이코드
+                    checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
+            dialog.setCancelable(false);
             dialog.show();
 
         } else if (what.equals(LOGOUT)) {
@@ -379,10 +381,16 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
      * 중복 로그인이 아니면 학습동의서, 사전설문, 나의 강의실로 이동
      */
     private void overlap_proc(String result) {
-        if (result != "") {
+        //출석기간이 아니면 알림
+
+        if (si.getStudyDate().equals("0")) {
+            showDoNotStudyDate(si.getStudyDate());
+            //테스트
+            // goClassRoom();
+            //테스트
+        } else if (result != "") {
             //중복 로그인
             String[] arrResult = result.split(",");
-
             AlertDialog.Builder ab = new AlertDialog.Builder(A09_Classroom.this);
             ab.setCancelable(false);
             ab.setMessage("중복 로그인이 감지되어 로그아웃 되었습니다.\n\n" +
@@ -404,11 +412,13 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
 
             if (isEnable) {
                 if (getIsNeedCerty() == false && savedCertyState.getBoolean("certyState", false) == false) {
+
                     isLoginCerty();
-                    //출시시엔 여기에 checkDong_Server() 넣기
+                    //출시시엔 여기에 isLoginCerty(); 넣기
 
                 } else {
                     checkDong_Servey();
+
                 }
             } else {
                 //모바일 수강 불가능한 과목이면 Alert를 띄운다.
@@ -547,9 +557,9 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     private void checkDong_Servey() {
         Intent intent;
         if (si.getStudyDate().equals("0")) {
-            //showDoNotStudyDate(si.getStudyDate());
+            showDoNotStudyDate(si.getStudyDate());
             //테스트
-            goClassRoom();
+            // goClassRoom();
             //테스트
         } else if (si.getDongPost().equals("")) {
             //학습동의서 미완료시,
@@ -584,7 +594,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
      */
     private void goClassRoom() {
         Intent intent = new Intent(getApplicationContext(), A10_ClassRoom.class);
-       // Intent intent = new Intent(this, A10_ClassRoom.class);
+        // Intent intent = new Intent(this, A10_ClassRoom.class);
         intent.putExtra("studyInfo", si);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
@@ -757,19 +767,19 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else if (result.equals("Err")) {
-                ab.setMessage("공인인증서 조회에 실패했습니다\n본 원으로 연락주세요!");
+                ab.setMessage("공인인증서 조회에 실패했습니다\n'범용'공인인증서 가 맞는지 확인해주세요. ");
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else if (result.equals("1358954498")) {
-                ab.setMessage("범용 공인인증서가 아닙니다.\n인증서를 다시한번 확인해주세요.");
+                ab.setMessage("범용 공인인증서가 아닙니다.\n'범용'공인인증서 가 맞는지 확인해주세요.");
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else if (result.equals("1342177281")) {
-                ab.setMessage("본인 확인에 실패했습니다.\n인증서를 다시한번 확인해주세요.");
+                ab.setMessage("본인 확인에 실패했습니다.\n'범용'공인인증서 가 맞는지 확인해주세요.");
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else if (result.equals("23068686")) {
-                ab.setMessage("전자서명 형식이 유효하지 않습니다.\n인증서를 다시한번 확인해주세요.");
+                ab.setMessage("전자서명 형식이 유효하지 않습니다.\n'범용'공인인증서 가 맞는지 확인해주세요.");
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else {

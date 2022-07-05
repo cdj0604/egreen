@@ -6,7 +6,7 @@
         <item name="colorPrimary">#EB6B6C</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimaryDark">#ffffff</item>
+        <item name="colorPrimaryDark">#F2F5F6</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>

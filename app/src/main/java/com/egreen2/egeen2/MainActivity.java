@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         //비정상종료 테스트
         //파이어베이스 stop 프로젝트에 오류보고서 확인. 필요시 버튼생성후 주석제거
        /* Button btn_stop = (Button)findViewById(R.id.btn_stop);
