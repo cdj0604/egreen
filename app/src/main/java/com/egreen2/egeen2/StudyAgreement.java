@@ -179,7 +179,7 @@ public class StudyAgreement extends AppCompatActivity {
             if (_highSchoolName.equals("")) {
                 ab.setTitle("학교명 미입력");
                 ab.setMessage("고등학교명을 입력해주세요");
-                ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+                ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         et_highSchoolName.setText("");
@@ -193,7 +193,7 @@ public class StudyAgreement extends AppCompatActivity {
             } else if (_highSchoolName.length() < 3) {
                 ab.setTitle("학교명 입력오류");
                 ab.setMessage("고등학교명이 너무 짧습니다.\n다시한번 확인해주세요.");
-                ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+                ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         et_highSchoolName.setText("");
@@ -209,7 +209,7 @@ public class StudyAgreement extends AppCompatActivity {
             if (_graduationDate.equals("")) {
                 ab.setTitle("졸업연도 미입력");
                 ab.setMessage("졸업연도를 입력해주세요");
-                ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+                ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         et_graduationDate.setText("");

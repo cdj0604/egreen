@@ -381,7 +381,7 @@ public class A02_Login extends AppCompatActivity {
                 android.app.AlertDialog.Builder ab = new android.app.AlertDialog.Builder(this);
                 ab.setTitle("공인인증서 유예 로그인");
                 ab.setMessage(userName + "님은 공인인증서 유예자 입니다.\n유예기간은 " + postponementTerm + "까지 입니다.\n범용공인인증서를 준비해주세요.");
-                ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+                ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //필독 안내 사항Dialog를 띄운다.

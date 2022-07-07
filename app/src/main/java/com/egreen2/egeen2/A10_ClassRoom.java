@@ -594,7 +594,7 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
             Log.i(TAG, "차시 선택 => " + si.getClassId() + ", " + sCid + ", " + eCid + ", " + fileRoot);
 
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
-            ab.setPositiveButton("알겠습니다", null);
+            ab.setPositiveButton("확인", null);
 
             if (jucha == 7 || jucha == 15) {
                 ab.setTitle("시험안내");
@@ -657,7 +657,7 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
         } else {
             Log.i(TAG, "jucha ==>> " + jucha);
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
-            ab.setPositiveButton("알겠습니다", null);
+            ab.setPositiveButton("확인", null);
 
             if (jucha == 7 || jucha == 15) {
                 ab.setTitle("시험안내");
@@ -705,7 +705,7 @@ public class A10_ClassRoom extends AppCompatActivity implements View.OnClickList
                 "접 속 IP : " + arrResult[2] + "\n" +
                 "접 속 OS : " + arrResult[3] + "\n" +
                 "접속Browser : " + arrResult[4]);
-        ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+        ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(getApplicationContext(), A02_Login.class);

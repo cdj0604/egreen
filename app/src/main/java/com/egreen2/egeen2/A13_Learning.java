@@ -1,6 +1,7 @@
 package com.egreen2.egeen2;
 
 
+import android.app.PictureInPictureParams;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.util.Rational;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -83,6 +85,12 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.a13_learning);
+
+        //pip
+    /*    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+            enterPictureInPictureMode(pipBuilder.build());}*/
+
 /*
         // 현재 기기의 SDK버전이 안드로이드11 보다 크거나 같다면
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -91,9 +99,6 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
             window.setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN )
         }*/
 
-        출처:
-        https:
-//offbyone.tistory.com/428 [쉬고 싶은 개발자]
         /* 2021.04.01 앱 캐시 지우기 코드 시작 */
         instanse = this;
         clearApplicationData();
@@ -617,6 +622,14 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
         }).show();
     }
 
+   /* public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode, Configuration newConfig){
+        if(isInPictureInPictureMode) {
+            Toast.makeText(this, "PIP Mode",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "not PIP Mode",Toast.LENGTH_SHORT).show();
+        }
+    }*/
     /**
      * 중복 로그인 알림
      */
@@ -629,7 +642,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
                 "접 속 IP : " + arrResult[2] + "\n" +
                 "접 속 OS : " + arrResult[3] + "\n" +
                 "접속Browser : " + arrResult[4]);
-        ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+        ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(getApplicationContext(), A02_Login.class);
@@ -795,5 +808,54 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
                 Log.i(TAG, "진도처리 통신 오류 발생!!");
             }
         }
+    }
+
+    //TODO PIP 모드로 전환 실시
+    public void setPipMode(){
+        /** [pip 모드 설명]
+         *  1. pip 는 안드로이드 8.0 오레오 이상에서 활동을 수행할 수 있습니다
+         *  2. pip 는 특수한 유형의 멀티 윈도우 모드입니다
+         *  3. pip 모드 예로는 유튜브 창모드 전환 등이 있습니다
+         * */
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Log.d("---","---");
+                Log.w("//===========//","================================================");
+                Log.d("","\n"+"[MainActivity > setPipMode() PIP 모드 실행 실시]");
+                Log.d("","\n"+"[결과 : "+String.valueOf("오레오 버전 이상 > 전환 수행")+"]");
+                Log.w("//===========//","================================================");
+                Log.d("---","---");
+
+                /** [기본 방법]
+                 PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+                 enterPictureInPictureMode(pipBuilder.build());
+                 */
+
+                /** [화면 사이즈 조절 방법]*/
+                Rational aspectRatio = new Rational(16, 9);
+                PictureInPictureParams params = new PictureInPictureParams.Builder()
+                        .setAspectRatio(aspectRatio).build();
+                enterPictureInPictureMode(params);
+
+            }
+            else{
+                Log.d("---","---");
+                Log.e("//===========//","================================================");
+                Log.d("","\n"+"[MainActivity > setPipMode() PIP 모드 실행 실시]");
+                Log.d("","\n"+"[결과 : "+String.valueOf("오레오 버전 미만 > 전환 실패")+"]");
+                Log.e("//===========//","================================================");
+                Log.d("---","---");
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //홈버튼 클릭이벤트
+    @Override
+    protected void onUserLeaveHint() {
+        setPipMode();
+
     }
 }

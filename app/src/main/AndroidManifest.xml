@@ -77,7 +77,12 @@
         <activity android:name=".A11_Apply" />
         <activity android:name=".A12_Setting"></activity>
         <activity android:name="A12_Info"></activity>
-        <activity android:name=".A13_Learning"></activity>
+        <activity android:name=".A13_Learning"
+            android:resizeableActivity="true"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true">
+
+        </activity>
         <activity android:name=".ClassNotiContents"></activity>
         <activity android:name=".before_Main"></activity>
         <activity android:name=".StudyAgreement"></activity>

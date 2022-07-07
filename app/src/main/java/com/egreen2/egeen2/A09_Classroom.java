@@ -398,7 +398,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                     "접 속 IP : " + arrResult[2] + "\n" +
                     "접 속 OS : " + arrResult[3] + "\n" +
                     "접속Browser : " + arrResult[4]);
-            ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+            ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(getApplicationContext(), A02_Login.class);
@@ -425,7 +425,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 AlertDialog.Builder ab = new AlertDialog.Builder(A09_Classroom.this);
                 ab.setTitle("모바일 수강불가 과목");
                 ab.setMessage("죄송합니다.\n[" + si.getClassTitle().trim() + "]은 모바일 강의를 지원하지 않습니다.\nPC를 이용해주세요.");
-                ab.setPositiveButton("알겠습니다", new DialogInterface.OnClickListener() {
+                ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 //                        netConnForGetMyClassListData();
@@ -753,7 +753,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
             }
         }
     }
-
+    //인증서 오류처리
     private void loginCertyResult_proc(String result) {
         android.app.AlertDialog.Builder ab = new android.app.AlertDialog.Builder(A09_Classroom.this);
         ab.setCancelable(false);
@@ -782,7 +782,14 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 ab.setMessage("전자서명 형식이 유효하지 않습니다.\n'범용'공인인증서 가 맞는지 확인해주세요.");
                 ab.setPositiveButton("확인", null);
                 ab.show();
-            } else {
+            }
+            else if (result.equals("17825813")) {
+                ab.setMessage("인증서가 폐지되었습니다.\n'인증서 재발급 후 다시 시도해주세요.");
+                ab.setPositiveButton("확인", null);
+                ab.show();
+            }
+
+            else {
                 //위 사항 모두 해당 없을때
                 ab.setMessage("예상치 못한 오류가 발생했습니다.\n오류내용을 본 교육원에 알려주세요\n오류내용 : " + result);
                 ab.setPositiveButton("확인", null);
