@@ -56,12 +56,13 @@ public class MainActivity extends AppCompatActivity {
     NetworkStateCheck netCheck;
     private long backKeyPressedTime = 0;
     private DrawerLayout mDrawerLayout;
+    NetworkAsyncTasker asyncTask;
+    private static final String LOGOUT = "logout";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         //비정상종료 테스트
         //파이어베이스 stop 프로젝트에 오류보고서 확인. 필요시 버튼생성후 주석제거
@@ -208,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
     /**
      * Activity 를 이동한다.
      */
@@ -292,12 +294,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void go_logout() {
-        SharedPreferences sharedPreferences = getSharedPreferences("autologin", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("login", 2);
-        editor.commit();
-        Intent intent = new Intent(getApplicationContext(), before_Main.class);
-        startActivity(intent);
+
+        //다이얼로그 예 눌렀을때 인텐트실행
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("로그아웃 하시겠습니까?");
+
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+
+                SharedPreferences sharedPreferences = getSharedPreferences("autologin", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("login", 2);
+                editor.commit();
+                Intent intent = new Intent(getApplicationContext(), before_Main.class);
+                startActivity(intent);
+
+            }
+        });
+
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
 
     }
 
@@ -365,10 +389,6 @@ public class MainActivity extends AppCompatActivity {
         A06Q_Intent();
     }  //빠른상담 버튼 클릭
 
-    public void go_A02_Login(View view) {
-        A02_Intent();
-    }         //로그인 버튼 클릭
-
     public void go_logout(View view) {
         go_logout();
     }
@@ -421,6 +441,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }).show();
     }
+
 
     /**
      * 로그인 기록을 남기기 위한 AsyncTask
@@ -479,6 +500,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
+
     }
 
 

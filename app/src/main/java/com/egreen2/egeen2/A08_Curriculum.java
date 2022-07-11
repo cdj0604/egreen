@@ -3,6 +3,7 @@ package com.egreen2.egeen2;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -27,6 +28,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -200,6 +202,33 @@ public class A08_Curriculum extends AppCompatActivity {
         });
 
     } //onCreate 종료
+
+    public void go_logout(View view) {
+        //다이얼로그 예 눌렀을때 인텐트실행
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("로그아웃 하시겠습니까?");
+
+        builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                SharedPreferences sharedPreferences = getSharedPreferences("autologin", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("login", 2);
+                editor.commit();
+                Intent intent = new Intent(getApplicationContext(), before_Main.class);
+                startActivity(intent);
+            }
+        });
+
+        builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 
     @Override
     protected void onStart() {

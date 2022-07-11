@@ -9,7 +9,6 @@
 
     </queries>
 
-
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 허용 -->
     <!--uses-permission android:name="android.permission.CALL_PHONE"/--> <!-- 전화걸기 허용 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 3g/4g 상태 접근 허용 -->
@@ -64,7 +63,7 @@
         <activity android:name=".A06_Telephone" />
         <activity android:name=".A06_Support" />
         <activity android:name=".A06_FAQBoard" />
-        <activity android:name=".A06_FAQ"/>
+        <activity android:name=".A06_FAQ" />
         <activity android:name=".A06_FAQWebView" />
         <activity android:name=".A07_Guide" />
         <activity android:name=".A07_ApplyG" />
@@ -77,12 +76,11 @@
         <activity android:name=".A11_Apply" />
         <activity android:name=".A12_Setting"></activity>
         <activity android:name="A12_Info"></activity>
-        <activity android:name=".A13_Learning"
-            android:resizeableActivity="true"
+        <activity
+            android:name=".A13_Learning"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-            android:supportsPictureInPicture="true">
-
-        </activity>
+            android:resizeableActivity="true"
+            android:supportsPictureInPicture="true"></activity>
         <activity android:name=".ClassNotiContents"></activity>
         <activity android:name=".before_Main"></activity>
         <activity android:name=".StudyAgreement"></activity>
@@ -94,6 +92,11 @@
             android:exported="true" />
 
         <activity android:name=".MainActivity" />
+        <service
+            android:name=".ForecdTerminationService"
+            android:stopWithTask="false">
+
+        </service>
 
         <activity
             android:name=".A00_SplashScreen"

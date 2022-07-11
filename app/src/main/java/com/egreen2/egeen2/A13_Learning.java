@@ -811,6 +811,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
     }
 
     //TODO PIP 모드로 전환 실시
+    @RequiresApi(api = Build.VERSION_CODES.S)
     public void setPipMode(){
         /** [pip 모드 설명]
          *  1. pip 는 안드로이드 8.0 오레오 이상에서 활동을 수행할 수 있습니다
@@ -834,6 +835,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
                 /** [화면 사이즈 조절 방법]*/
                 Rational aspectRatio = new Rational(16, 9);
                 PictureInPictureParams params = new PictureInPictureParams.Builder()
+                        .setSeamlessResizeEnabled(false)
                         .setAspectRatio(aspectRatio).build();
                 enterPictureInPictureMode(params);
 
@@ -853,9 +855,9 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
     }
 
     //홈버튼 클릭이벤트
+    @RequiresApi(api = Build.VERSION_CODES.S)
     @Override
     protected void onUserLeaveHint() {
-        setPipMode();
-
+            setPipMode();
     }
 }

@@ -767,7 +767,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else if (result.equals("Err")) {
-                ab.setMessage("공인인증서 조회에 실패했습니다\n'범용'공인인증서 가 맞는지 확인해주세요. ");
+                ab.setMessage("공인인증서 조회에 실패했습니다\n'한국전자인증' 어플을 통하여 인증서 복사하기를 해주세요. ");
                 ab.setPositiveButton("확인", null);
                 ab.show();
             } else if (result.equals("1358954498")) {
@@ -898,10 +898,12 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
         builder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                netConnForLogout();
-                //  Intent intent = new Intent(getApplicationContext(), before_Main.class);
-                //  startActivity(intent);
-
+                SharedPreferences sharedPreferences = getSharedPreferences("autologin", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("login", 2);
+                editor.commit();
+                Intent intent = new Intent(getApplicationContext(), before_Main.class);
+                startActivity(intent);
             }
         });
 

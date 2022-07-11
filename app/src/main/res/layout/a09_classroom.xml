@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
+    android:background="#F2F5F6"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,22 +19,6 @@
             android:layout_height="1dp"
             android:layout_below="@+id/a09_toolbar"
             android:background="#dfe4e6" />
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/a09_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:contentInsetStart="0dp"
-            app:contentInsetStartWithNavigation="0dp">
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/egreen_splash" />
-
-
-        </androidx.appcompat.widget.Toolbar>
 
         <!--
         <LinearLayout
@@ -57,6 +42,23 @@
         </LinearLayout>
 
         -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/a09_toolbar"
+            android:layout_width="match_parent"
+
+            android:layout_height="50dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/egreen_splash" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
