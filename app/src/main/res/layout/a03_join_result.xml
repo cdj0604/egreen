@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_below="@+id/a03_toolbar"
-            android:background="#6e42c4" />
+            android:background="#dfe4e6" />
 
         <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/a03_toolbar"

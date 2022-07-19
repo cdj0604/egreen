@@ -630,6 +630,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
             Toast.makeText(this, "not PIP Mode",Toast.LENGTH_SHORT).show();
         }
     }*/
+
     /**
      * 중복 로그인 알림
      */
@@ -700,6 +701,52 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
         Log.i(TAG, "onDestroy()");
 
         super.onDestroy();
+    }
+
+    //TODO PIP 모드로 전환 실시
+    public void setPipMode() {
+        /** [pip 모드 설명]
+         *  1. pip 는 안드로이드 8.0 오레오 이상에서 활동을 수행할 수 있습니다
+         *  2. pip 는 특수한 유형의 멀티 윈도우 모드입니다
+         *  3. pip 모드 예로는 유튜브 창모드 전환 등이 있습니다
+         * */
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Log.d("---", "---");
+                Log.w("//===========//", "================================================");
+                Log.d("", "\n" + "[MainActivity > setPipMode() PIP 모드 실행 실시]");
+                Log.d("", "\n" + "[결과 : " + "오레오 버전 이상 > 전환 수행" + "]");
+                Log.w("//===========//", "================================================");
+                Log.d("---", "---");
+
+                /** [기본 방법]
+                 PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+                 enterPictureInPictureMode(pipBuilder.build());
+                 */
+
+                /** [화면 사이즈 조절 방법]*/
+                Rational aspectRatio = new Rational(16, 9); //
+                PictureInPictureParams params = new PictureInPictureParams.Builder()
+                        .setAspectRatio(aspectRatio).build();
+                enterPictureInPictureMode(params);
+
+            } else {
+                Log.d("---", "---");
+                Log.e("//===========//", "================================================");
+                Log.d("", "\n" + "[MainActivity > setPipMode() PIP 모드 실행 실시]");
+                Log.d("", "\n" + "[결과 : " + "오레오 버전 미만 > 전환 실패" + "]");
+                Log.e("//===========//", "================================================");
+                Log.d("---", "---");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //홈버튼 클릭이벤트
+    @Override
+    protected void onUserLeaveHint() {
+        setPipMode();
     }
 
     /**
@@ -808,56 +855,5 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
                 Log.i(TAG, "진도처리 통신 오류 발생!!");
             }
         }
-    }
-
-    //TODO PIP 모드로 전환 실시
-    @RequiresApi(api = Build.VERSION_CODES.S)
-    public void setPipMode(){
-        /** [pip 모드 설명]
-         *  1. pip 는 안드로이드 8.0 오레오 이상에서 활동을 수행할 수 있습니다
-         *  2. pip 는 특수한 유형의 멀티 윈도우 모드입니다
-         *  3. pip 모드 예로는 유튜브 창모드 전환 등이 있습니다
-         * */
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Log.d("---","---");
-                Log.w("//===========//","================================================");
-                Log.d("","\n"+"[MainActivity > setPipMode() PIP 모드 실행 실시]");
-                Log.d("","\n"+"[결과 : "+String.valueOf("오레오 버전 이상 > 전환 수행")+"]");
-                Log.w("//===========//","================================================");
-                Log.d("---","---");
-
-                /** [기본 방법]
-                 PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
-                 enterPictureInPictureMode(pipBuilder.build());
-                 */
-
-                /** [화면 사이즈 조절 방법]*/
-                Rational aspectRatio = new Rational(16, 9);
-                PictureInPictureParams params = new PictureInPictureParams.Builder()
-                        .setSeamlessResizeEnabled(false)
-                        .setAspectRatio(aspectRatio).build();
-                enterPictureInPictureMode(params);
-
-            }
-            else{
-                Log.d("---","---");
-                Log.e("//===========//","================================================");
-                Log.d("","\n"+"[MainActivity > setPipMode() PIP 모드 실행 실시]");
-                Log.d("","\n"+"[결과 : "+String.valueOf("오레오 버전 미만 > 전환 실패")+"]");
-                Log.e("//===========//","================================================");
-                Log.d("---","---");
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    //홈버튼 클릭이벤트
-    @RequiresApi(api = Build.VERSION_CODES.S)
-    @Override
-    protected void onUserLeaveHint() {
-            setPipMode();
     }
 }

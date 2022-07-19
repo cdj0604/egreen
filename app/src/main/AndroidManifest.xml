@@ -92,11 +92,7 @@
             android:exported="true" />
 
         <activity android:name=".MainActivity" />
-        <service
-            android:name=".ForecdTerminationService"
-            android:stopWithTask="false">
 
-        </service>
 
         <activity
             android:name=".A00_SplashScreen"

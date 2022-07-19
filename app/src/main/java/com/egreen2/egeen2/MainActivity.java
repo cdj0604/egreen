@@ -42,6 +42,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String OVERLAP = "overlap";
+    private static final String LOGOUT = "logout";
     private final Context context = this;
     // ** View 변수 선언 **
     String storeVersion = "2.0.0", appVersion = ""; //storeVersion 은 업데이트시 수기로 수정
@@ -54,10 +56,9 @@ public class MainActivity extends AppCompatActivity {
     StudyInfo si;
     boolean _isNeedCertyLogin, saveLoginData;
     NetworkStateCheck netCheck;
+    NetworkAsyncTasker asyncTask;
     private long backKeyPressedTime = 0;
     private DrawerLayout mDrawerLayout;
-    NetworkAsyncTasker asyncTask;
-    private static final String LOGOUT = "logout";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -207,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
         // ** 배너 **
         showBanner();
     }
-
 
 
     /**

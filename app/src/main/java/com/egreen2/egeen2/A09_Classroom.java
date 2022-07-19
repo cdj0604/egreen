@@ -753,6 +753,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
             }
         }
     }
+
     //인증서 오류처리
     private void loginCertyResult_proc(String result) {
         android.app.AlertDialog.Builder ab = new android.app.AlertDialog.Builder(A09_Classroom.this);
@@ -782,14 +783,11 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 ab.setMessage("전자서명 형식이 유효하지 않습니다.\n'범용'공인인증서 가 맞는지 확인해주세요.");
                 ab.setPositiveButton("확인", null);
                 ab.show();
-            }
-            else if (result.equals("17825813")) {
+            } else if (result.equals("17825813")) {
                 ab.setMessage("인증서가 폐지되었습니다.\n'인증서 재발급 후 다시 시도해주세요.");
                 ab.setPositiveButton("확인", null);
                 ab.show();
-            }
-
-            else {
+            } else {
                 //위 사항 모두 해당 없을때
                 ab.setMessage("예상치 못한 오류가 발생했습니다.\n오류내용을 본 교육원에 알려주세요\n오류내용 : " + result);
                 ab.setPositiveButton("확인", null);

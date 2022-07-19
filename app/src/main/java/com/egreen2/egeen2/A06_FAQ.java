@@ -13,7 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 public class A06_FAQ extends AppCompatActivity {
 
-    TextView a1, a2, a3, a4, a5, a6, a7, a8, a9, a10;
+    TextView a1, a2, a3, a4, a5, a6, a7, a8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,6 @@ public class A06_FAQ extends AppCompatActivity {
         a6 = findViewById(R.id.a6);
         a7 = findViewById(R.id.a7);
         a8 = findViewById(R.id.a8);
-        a9 = findViewById(R.id.a9);
-        a10 = findViewById(R.id.a10);
 
 
     }
@@ -113,24 +111,6 @@ public class A06_FAQ extends AppCompatActivity {
             a8.setVisibility(View.VISIBLE);
         } else {
             a8.setVisibility(View.GONE);
-        }
-
-    }
-
-    public void q9(View view) {
-        if (a9.getVisibility() == View.GONE) {
-            a9.setVisibility(View.VISIBLE);
-        } else {
-            a9.setVisibility(View.GONE);
-        }
-
-    }
-
-    public void q10(View view) {
-        if (a10.getVisibility() == View.GONE) {
-            a10.setVisibility(View.VISIBLE);
-        } else {
-            a10.setVisibility(View.GONE);
         }
 
     }
