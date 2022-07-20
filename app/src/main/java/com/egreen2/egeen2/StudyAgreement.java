@@ -335,7 +335,10 @@ public class StudyAgreement extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();
-        moveToA09_Classroom();
+        Intent intent = new Intent(this, Survey.class);
+        intent.putExtra("studyInfo", si);
+        startActivity(intent);
+        finish();
     }
 
     /**

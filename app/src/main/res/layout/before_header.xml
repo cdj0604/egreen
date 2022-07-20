@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <View
+        android:id="@+id/a07_view_toolbar"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/a07_toolbar"
-        android:layout_marginTop="5dp"
         android:background="@color/gray" />
 
     <LinearLayout
@@ -28,6 +27,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:orientation="vertical">
 
 
@@ -59,7 +59,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:gravity="bottom|right"
         android:orientation="horizontal">
@@ -105,13 +105,12 @@
                 android:textColor="@color/gray"
                 android:textSize="8dp" />
         </LinearLayout>
+
     </LinearLayout>
 
     <View
-        android:id="@+id/a07_view_toolbar"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/a07_toolbar"
         android:layout_marginTop="5dp"
         android:background="@color/gray" />
 

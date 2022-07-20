@@ -63,7 +63,7 @@ public class ClassNotiContents extends AppCompatActivity {
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
             //페이지 로딩 시작
-            loading = new ShowLoading(ClassNotiContents.this, "강의를 가져오는 중입니다!");
+            loading = new ShowLoading(ClassNotiContents.this, "공지사항을 불러오는 중입니다!");
             loading.start();
         }
 

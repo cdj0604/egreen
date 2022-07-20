@@ -364,8 +364,8 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 public void onClick(View view) {
                     dialog.dismiss(); // 다이얼로그 닫기
 
-                    // overlap_proc(result); //앱 출시 시에는 이코드
-                    checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+                    overlap_proc(result); //앱 출시 시에는 이코드
+               //     checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
             dialog.setCancelable(false);
@@ -382,12 +382,11 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
      */
     private void overlap_proc(String result) {
         //출석기간이 아니면 알림
-
         if (si.getStudyDate().equals("0")) {
             showDoNotStudyDate(si.getStudyDate());
             //테스트
             // goClassRoom();
-            //테스트
+
         } else if (result != "") {
             //중복 로그인
             String[] arrResult = result.split(",");
@@ -412,9 +411,8 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
 
             if (isEnable) {
                 if (getIsNeedCerty() == false && savedCertyState.getBoolean("certyState", false) == false) {
-
-                    isLoginCerty();
                     //출시시엔 여기에 isLoginCerty(); 넣기
+                    isLoginCerty();
 
                 } else {
                     checkDong_Servey();
