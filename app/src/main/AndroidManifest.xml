@@ -47,7 +47,8 @@
         android:label="e그린e러닝2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
         <activity android:name=".A02_Login" />
         <activity android:name=".A03_JoinTerms" />
         <activity android:name=".A03_ClickWrap" />
@@ -80,7 +81,8 @@
             android:name=".A13_Learning"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:resizeableActivity="true"
-            android:supportsPictureInPicture="true"></activity>
+            android:supportsPictureInPicture="true"
+            tools:targetApi="n"></activity>
         <activity android:name=".ClassNotiContents"></activity>
         <activity android:name=".before_Main"></activity>
         <activity android:name=".StudyAgreement"></activity>

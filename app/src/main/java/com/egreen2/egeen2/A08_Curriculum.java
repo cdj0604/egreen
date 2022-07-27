@@ -6,26 +6,23 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.egreen2.egeen2.Data.StudyInfo;
 import com.google.android.material.navigation.NavigationView;
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-import java.io.IOException;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -55,15 +52,7 @@ public class A08_Curriculum extends AppCompatActivity {
     //네트워크 상태 체크
     NetworkStateCheck netCheck;
     WebView webView;
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            Bundle bundle = msg.getData();
-            textView.setText(bundle.getString("list1"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
-            textView2.setText(bundle.getString("list"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
-            textView3.setText(bundle.getString("list2"));                      //이런식으로 View를 메인 쓰레드에서 뿌려줘야한다.
-        }
-    };
+
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -71,54 +60,34 @@ public class A08_Curriculum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a08_curriculum);
         si = (StudyInfo) getIntent().getSerializableExtra("studyInfo");
-        textView = findViewById(R.id.textView);
-        textView2 = findViewById(R.id.textView2);
-        textView3 = findViewById(R.id.textView3);
-        final Bundle bundle = new Bundle();
+        webView = findViewById(R.id.webview);
 
-        new Thread() {
-            @Override
-            public void run() {
-                Document doc = null;
-                try {
-                    //과목명
-                    doc = Jsoup.connect("https://cb.egreen.co.kr/Contents/test/list.html").get();
-                    Elements contents = doc.select("#tab01 > table > tbody > tr:nth-child(1) > td.t_l_i.f_b > a");
-                    list1 = contents.text() + "\n";
 
-                    for (int i = 2; i < 69; i++) {
-                        contents = doc.select("#tab01 > table > tbody > tr:nth-child(" + i + ") > td.t_l_i.f_b > a");
-                        list1 += contents.text() + "\n";
-                    }
+        /* 약관을 보여줄때까지 로딩 Dialog 설정 */
+        loadingDialog = new ProgressDialog(A08_Curriculum.this);
+        loadingDialog.setMessage("교육과정을 불러오는 중입니다.");
+        loadingDialog.setIndeterminate(true);
+        loadingDialog.setCancelable(true);
+        /* WebView 설정 */
+        webView.setWebViewClient(new WebBrowserClient());
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://mcb.egreen.co.kr/m/default_m.asp");
 
-                    //이수구분
-                    Elements contents1 = doc.select("#tab01 > table > tbody > tr:nth-child(1) > td:nth-child(1)");
-                    list = contents1.text() + "\n";
-                    for (int i = 2; i < 69; i++) {
-                        contents = doc.select("#tab01 > table > tbody > tr:nth-child( " + i + " ) > td:nth-child(1)");
-                        list += contents.text() + "\n";
-                    }
+        webView.getSettings().setSupportZoom(true);    //확대/축소 사용할 수 있도록 설정
+        webView.getSettings().setBuiltInZoomControls(true);    //안드로이드에서 제공하는 줌 아이콘을 사용할 수 있도록 설정
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE); //캐시모드를 사용하지 않고 네트워크를 통해서만 호출
+        webView.getSettings().setLoadWithOverviewMode(true);   //웹뷰 화면에 맞게 출력
+        webView.setWebChromeClient(new WebChromeClient());//웹뷰에 크롬 사용 허용//이 부분이 없으면 크롬에서 alert가 뜨지 않음
+        webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        webView.clearCache(true);
+        webView.getSettings().setLoadWithOverviewMode(true);   //웹뷰 화면에 맞게 출력
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setTextZoom(100);  //웹뷰 폰트 크기 고정
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.getSettings().setSupportMultipleWindows(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
 
-                    //교수명
-                    Elements contents2 = doc.select("#tab01 > table > tbody > tr:nth-child(1) > td:nth-child(6)");
-                    list2 = contents2.text() + "\n";
-                    for (int i = 2; i < 69; i++) {
-                        contents = doc.select("#tab01 > table > tbody > tr:nth-child( " + i + " ) > td:nth-child(6)");
-                        list2 += contents.text() + "\n";
-                    }
 
-                    bundle.putString("list1", list1);                               //핸들러를 이용해서 Thread()에서 가져온 데이터를 메인 쓰레드에 보내준다.
-                    bundle.putString("list2", list2);
-                    bundle.putString("list", list);
-                    Message msg = handler.obtainMessage();
-                    msg.setData(bundle);
-                    handler.sendMessage(msg);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
 
         /* Toolbar */
         Toolbar toolbar = findViewById(R.id.a08_toolbar);
@@ -240,7 +209,6 @@ public class A08_Curriculum extends AppCompatActivity {
         super.onResume();
     }
 
-
     private void moveActivity(Class activity) {
         StudyInfo si = new StudyInfo();
         si.setUserId(id);
@@ -272,12 +240,41 @@ public class A08_Curriculum extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Back 키를 눌러서 뒤로가기 Start
+    @Override
+    public boolean onKeyDown(int KeyCode, KeyEvent event) {
+        if ((KeyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
+        } else {
+            return super.onKeyDown(KeyCode, event);
+        }
+    }
+
     public void onBackPressed() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
 
     }
 
+    public class WebBrowserClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            return true;
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            loadingDialog.show();
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            loadingDialog.dismiss();
+        }
+    }
 
     private class NetworkConnect extends AsyncTask<Void, Void, String> {
         private final String url;

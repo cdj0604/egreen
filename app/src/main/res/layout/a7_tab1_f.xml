@@ -38,7 +38,8 @@
                 android:paddingRight="20dp"
                 android:text="**모바일 수강 전 한 번 읽어주세요**"
                 android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:targetApi="lollipop" />
 
 
             <TextView

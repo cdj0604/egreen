@@ -64,7 +64,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     private static final String OVERLAP = "overlap";
     private static final String LOGOUT = "logout";
     /* 공인인증서 변수 */
-    private final String appKey = "zkt3+fvve1BLu+uoaokXxQ==";     //테스트 라이센스 7/31 (배포전 정식 라이선스 발급 요청)
+    private final String appKey = "OvRMXIzt8cX3lCHJukyLfg==";     //테스트 라이센스 7/31 (배포전 정식 라이선스 발급 요청)
     private final String[] rtnParams = {"a", "b", "c"};
     ArrayList<A09_MyClassListData> data;
     RecyclerView myClassList;
@@ -365,7 +365,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                     dialog.dismiss(); // 다이얼로그 닫기
 
                     overlap_proc(result); //앱 출시 시에는 이코드
-               //     checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+                    //     checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
             dialog.setCancelable(false);

@@ -133,7 +133,8 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/round_border"
                 android:buttonTint="#6e42c4"
-                android:text="예, 이해했습니다." />
+                android:text="예, 이해했습니다."
+                tools:targetApi="lollipop" />
 
             <!-- A2 -->
             <TextView
@@ -155,7 +156,8 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/round_border"
                 android:buttonTint="#6e42c4"
-                android:text="예, 지키겠습니다." />
+                android:text="예, 지키겠습니다."
+                tools:targetApi="lollipop" />
 
             <!-- A3 -->
             <TextView
@@ -177,7 +179,8 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/round_border"
                 android:buttonTint="#6e42c4"
-                android:text="예, 수행하겠습니다." />
+                android:text="예, 수행하겠습니다."
+                tools:targetApi="lollipop" />
 
             <!-- A4 -->
             <TextView
@@ -199,7 +202,8 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/round_border"
                 android:buttonTint="#6e42c4"
-                android:text="예, 성실히 하겠습니다." />
+                android:text="예, 성실히 하겠습니다."
+                tools:targetApi="lollipop" />
 
             <!-- A5 -->
             <TextView
@@ -221,7 +225,8 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/round_border"
                 android:buttonTint="#6e42c4"
-                android:text="예, 성실히 하겠습니다." />
+                android:text="예, 성실히 하겠습니다."
+                tools:targetApi="lollipop" />
 
             <TextView
                 android:layout_width="match_parent"

@@ -10,7 +10,9 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
+import android.net.Network;
 import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,6 +35,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -85,6 +88,27 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.a13_learning);
+
+        ConnectivityManager manager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkRequest.Builder builder = new NetworkRequest.Builder();
+        manager.registerNetworkCallback(builder.build(), new ConnectivityManager.NetworkCallback() {
+
+            @Override
+            public void onAvailable(@NonNull Network network) {
+                // 네트워크를 사용할 준비가 되었을 때
+                Toast.makeText(A13_Learning.this, "네트워크 연결 됨", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLost(@NonNull Network network) {
+                // 네트워크가 끊겼을 때
+                Toast.makeText(A13_Learning.this, "네트워크 연결이 끊겼습니다.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("studyInfo", si);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         //pip
     /*    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -746,7 +770,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
     //홈버튼 클릭이벤트
     @Override
     protected void onUserLeaveHint() {
-        setPipMode();
+        //  setPipMode();
     }
 
     /**

@@ -47,9 +47,9 @@
         <entry key="app/src/main/res/layout/a03_trust.xml" value="0.23020833333333332" />
         <entry key="app/src/main/res/layout/a04_cs_find_id_result_alert.xml" value="0.3802083333333333" />
         <entry key="app/src/main/res/layout/a04_cs_find_pw_result_alert.xml" value="0.23020833333333332" />
-        <entry key="app/src/main/res/layout/a04_find_id.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/a04_find_id.xml" value="0.33" />
         <entry key="app/src/main/res/layout/a04_find_pw.xml" value="0.23020833333333332" />
-        <entry key="app/src/main/res/layout/a05_cs_notice_list.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/a05_cs_notice_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/a05_notice_board.xml" value="0.225" />
         <entry key="app/src/main/res/layout/a05_notice_board_before.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/layout/a05_notice_webview.xml" value="0.3695652173913043" />
@@ -67,6 +67,7 @@
         <entry key="app/src/main/res/layout/a07_learning_g.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/a07_learning_g_sub.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/a08_curriculum.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/a08_curriculum2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/a08_curriculum_c.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/a08_learning_plan.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout/a08_sample.xml" value="0.2667572463768116" />

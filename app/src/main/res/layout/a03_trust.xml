@@ -40,7 +40,8 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
                 android:onClick="close"
-                app:srcCompat="@drawable/close" />
+                app:srcCompat="@drawable/close"
+                android:contentDescription="TODO" />
 
         </androidx.appcompat.widget.Toolbar>
 

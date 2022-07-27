@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_below="@+id/a04_toolbar"
-            android:background="#6e42c4" />
+            android:background="#dfe4e6" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/a04_toolbar"
@@ -30,11 +30,13 @@
                 android:id="@+id/logo"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/egreen_splash" />
+                app:srcCompat="@drawable/egreen_splash"
+                android:contentDescription="TODO" />
 
         </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/a04_view_toolbar"
