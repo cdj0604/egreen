@@ -57,7 +57,7 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="15dp"
-        app:srcCompat="@drawable/next"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/next" />
 
 </RelativeLayout>

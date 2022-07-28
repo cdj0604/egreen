@@ -31,8 +31,8 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
-                app:srcCompat="@drawable/a02_user"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/a02_user" />
         </LinearLayout>
 
         <LinearLayout

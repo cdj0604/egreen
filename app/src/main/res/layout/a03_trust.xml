@@ -39,9 +39,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
+                android:contentDescription="TODO"
                 android:onClick="close"
-                app:srcCompat="@drawable/close"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/close" />
 
         </androidx.appcompat.widget.Toolbar>
 

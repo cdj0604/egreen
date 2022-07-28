@@ -35,8 +35,8 @@
                     android:id="@+id/logo"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/egreen_splash"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="TODO"
+                    app:srcCompat="@drawable/egreen_splash" />
 
 
             </androidx.appcompat.widget.Toolbar>

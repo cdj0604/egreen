@@ -43,11 +43,9 @@
 
         <WebView
             android:id="@+id/webview"
-            android:layout_below="@+id/a08_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
+            android:layout_height="match_parent"
+            android:layout_below="@+id/a08_toolbar" />
 
 
         <!-- 공지사항 -->
