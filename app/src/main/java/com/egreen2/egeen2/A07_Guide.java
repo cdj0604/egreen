@@ -1,5 +1,6 @@
 package com.egreen2.egeen2;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -275,10 +277,10 @@ public class A07_Guide extends AppCompatActivity {
 
     }
 
-/*
+
     private class NetworkConnect extends AsyncTask<Void, Void, String> {
-        private String url;
-        private ContentValues values;
+        private final String url;
+        private final ContentValues values;
 
         public NetworkConnect(String url, ContentValues value) {
             this.url = url;
@@ -294,6 +296,7 @@ public class A07_Guide extends AppCompatActivity {
 
             return result;
         }
+
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
@@ -316,5 +319,5 @@ public class A07_Guide extends AppCompatActivity {
             }
         }
 
-    }*/
+    }
 }

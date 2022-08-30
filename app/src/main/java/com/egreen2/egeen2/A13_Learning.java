@@ -10,9 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
-import android.net.NetworkRequest;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,7 +33,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutionException;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,7 +86,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.a13_learning);
 
-        ConnectivityManager manager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+       /* ConnectivityManager manager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         manager.registerNetworkCallback(builder.build(), new ConnectivityManager.NetworkCallback() {
 
@@ -108,7 +105,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
 
         //pip
     /*    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -727,6 +724,7 @@ public class A13_Learning extends AppCompatActivity implements NetworkAsyncTaske
         super.onDestroy();
     }
 
+    //PIP모드 불안전 하기 때문에 버전 업(API32)에 따라 테스트 후 대응
     //TODO PIP 모드로 전환 실시
     public void setPipMode() {
         /** [pip 모드 설명]

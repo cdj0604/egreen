@@ -64,7 +64,7 @@ public class A02_Login extends AppCompatActivity {
     private final long backKeyPressedTime = 0;
     private final Context context = this;
     /* 공인인증서 변수 */
-    private final String appKey = "OvRMXIzt8cX3lCHJukyLfg=="; //테스트 라이센스 7/31 까지 (배포전 정식 라이선스 발급 요청)
+    private final String appKey = "OvRMXIzt8cX3lCHJukyLfg=="; //테스트 라이센스 10/31 까지 (배포전 정식 라이선스 발급 요청)
     private final String[] rtnParams = {"a", "b", "c"};
     TextView a02_version;           // 버전
     TextView a02_findID, a02_findPW;  // 학번/비번 찾기
@@ -311,6 +311,8 @@ public class A02_Login extends AppCompatActivity {
         */
         String encodingPw;
         try {
+            encodingPw = URLEncoder.encode(pw, "UTF-8");
+
             encodingPw = URLEncoder.encode(pw, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

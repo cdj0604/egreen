@@ -417,7 +417,7 @@ public class A12_Setting extends AppCompatActivity {
             String[] children = appDir.list();
             for (String s : children) {
                 if (s.equals("shared_prefs"))
-                    continue; //shared_prefs 폴더의 내용은 지우지 않는다. 자동로그인 / 다지보지않기 / 학번저장 등의 정보
+                    continue; //shared_prefs 폴더의 내용은 지우지 않는다. 자동로그인 / 다지보지않기 / 학번저장 등의 정보 를 제외한 강의 캐시데이터를 지움
                 else if (!s.equals("lib")) {
                     deleteDir(new File(appDir, s));
                     Log.i("TAG", "***************** File /data/data/APP_PACKAGE/" + s + "DELETE *****************");
@@ -431,6 +431,7 @@ public class A12_Setting extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
     private void moveActivity(Class activity) {
         StudyInfo si = new StudyInfo();

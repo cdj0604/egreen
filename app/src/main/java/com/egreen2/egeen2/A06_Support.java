@@ -68,6 +68,7 @@ public class A06_Support extends AppCompatActivity {
         head_studentid.setText(StudentID);
 
         id = StudentID;
+        loginNumber = si.getLoginNumber();
 
         /**
          * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기

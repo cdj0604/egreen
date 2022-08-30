@@ -66,6 +66,7 @@ public class A00_SplashScreen extends AppCompatActivity {
         anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha);
 
         //업데이트시 스토어버전 수정
+        //스토어에 올릴 버전 직접 수정 (gradle 버전과 맞추기)
         storeVersion = "2.0.0";
 
         if (!versionName.equals(storeVersion)) {
@@ -87,7 +88,7 @@ public class A00_SplashScreen extends AppCompatActivity {
                          * a가 1이 아닐때 = 자동로그인 스위치off상태 or 앱 설치후 첫 로그인시
                          */
 
-                        //자동 로그인 체크상태로, 바로 메인화면으로 간다
+                        //자동 로그인 체크상태로, 로그인 완료 된 메인화면으로 간다
                         if (a == 1) {
                             anim.setAnimationListener(new Animation.AnimationListener() {
                                 @Override
