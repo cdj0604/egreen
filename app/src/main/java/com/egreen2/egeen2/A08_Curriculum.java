@@ -71,7 +71,9 @@ public class A08_Curriculum extends AppCompatActivity {
         /* WebView 설정 */
         webView.setWebViewClient(new WebBrowserClient());
         webView.getSettings().setJavaScriptEnabled(true);
+      //  webView.setWebViewClient(new WebViewClientClass());
         webView.loadUrl("https://mcb.egreen.co.kr/m/default_m.asp");
+
 
         webView.getSettings().setSupportZoom(true);    //확대/축소 사용할 수 있도록 설정
         webView.getSettings().setBuiltInZoomControls(true);    //안드로이드에서 제공하는 줌 아이콘을 사용할 수 있도록 설정
@@ -172,6 +174,10 @@ public class A08_Curriculum extends AppCompatActivity {
 
     } //onCreate 종료
 
+    public class WebViewClientClass extends WebViewClient {
+
+    }
+
     public void go_logout(View view) {
         //다이얼로그 예 눌렀을때 인텐트실행
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -258,11 +264,15 @@ public class A08_Curriculum extends AppCompatActivity {
     }
 
     public class WebBrowserClient extends WebViewClient {
+
+        //웹뷰 내 페이지 이동 가능
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
             return true;
         }
 
+        //웹뷰 로딩 완료 전 까지 다이얼로그 띄움
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
@@ -275,6 +285,7 @@ public class A08_Curriculum extends AppCompatActivity {
             loadingDialog.dismiss();
         }
     }
+
 
     private class NetworkConnect extends AsyncTask<Void, Void, String> {
         private final String url;
@@ -316,6 +327,7 @@ public class A08_Curriculum extends AppCompatActivity {
                 }
             }
         }
+
 
 
     }

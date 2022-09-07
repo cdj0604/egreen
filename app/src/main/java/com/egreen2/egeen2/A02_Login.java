@@ -224,9 +224,10 @@ public class A02_Login extends AppCompatActivity {
      * 권한 체크
      * Pie 버전 이상에서 기기 일련번호를 가져오기 위해서는 원한 요청을 하고 승인을 받아야 함
      * 사용자에세 직접 승인 받아야 하는 요청은 인터넷으로 확인
+     * CALL은 권한 필요 DIAL은 권한 필요없음. DIAL 사용중이기 때문에 권한설정 안해도 됨.
      */
     private void checkPermissions() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
             if (checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, PERMISSIONSREQUEST_RESULT);
                 return;

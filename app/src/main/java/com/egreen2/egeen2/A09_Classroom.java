@@ -377,8 +377,8 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     }
 
     /**
-     * 터치 액션시, 중복 로그인 체크
-     * 중복 로그인이 아니면 학습동의서, 사전설문, 나의 강의실로 이동
+     * 중복 로그인이 아니면 학습동의서, 사전설문, 나의 강의실
+     * 터치 액션시, 중복 로그인 체크로 이동
      */
     private void overlap_proc(String result) {
         //출석기간이 아니면 알림

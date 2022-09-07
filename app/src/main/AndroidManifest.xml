@@ -10,7 +10,7 @@
     </queries>
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 허용 -->
-    <!--uses-permission android:name="android.permission.CALL_PHONE"/--> <!-- 전화걸기 허용 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/> <!-- 전화걸기 허용 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 3g/4g 상태 접근 허용 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- wifi 상태 접근 허용 -->
     <!--uses-permission android:name="android.permission.READ_PHONE_STATE" /--> <!-- 일련번호를 가져오기 위한 권한 허용 -->
