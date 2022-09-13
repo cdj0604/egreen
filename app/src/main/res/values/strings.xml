@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">e그린원격평생교육원</string>
+
+    <string name="default_notification_channel_id">Channel ID</string>
+
+    <string name="default_notification_channel_name" translatable="true">Test</string>
 </resources>

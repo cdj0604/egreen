@@ -47,7 +47,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/notiList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">
@@ -87,7 +87,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/attendList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="20dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp">

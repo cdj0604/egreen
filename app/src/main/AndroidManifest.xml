@@ -87,6 +87,14 @@
         <activity android:name=".before_Main"></activity>
         <activity android:name=".StudyAgreement"></activity>
         <activity android:name=".Survey"></activity>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:stopWithTask="false"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <service
             android:name=".BackgroundService"

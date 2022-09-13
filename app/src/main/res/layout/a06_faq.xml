@@ -78,7 +78,6 @@
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:id="@+id/a06_consultingTTextFrame"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -215,7 +214,6 @@
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:id="@+id/a06_consultingTTextFrame"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -261,7 +259,6 @@
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:id="@+id/q5"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -308,8 +305,6 @@
                         android:padding="10dp">
 
                         <LinearLayout
-
-                            android:id="@+id/a06_consultingTTextFrame"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -355,7 +350,6 @@
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:id="@+id/a06_consultingTTextFrame"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
@@ -400,7 +394,6 @@
                         android:padding="10dp">
 
                         <LinearLayout
-                            android:id="@+id/a06_consultingTTextFrame"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
