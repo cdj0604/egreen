@@ -241,12 +241,12 @@ public class A06_QuickAdvice extends AppCompatActivity implements View.OnClickLi
         } else if (phone3.equals("")) {    /* 휴대폰 번호 마지막 자리 필드 체크 */
             ab.setMessage("전화번호를 입력해주세요.");
             ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    a06_QAInputPhone3.requestFocus();
-                    imm.showSoftInput(a06_QAInputPhone3, 0);
-                }
-            })
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            a06_QAInputPhone3.requestFocus();
+                            imm.showSoftInput(a06_QAInputPhone3, 0);
+                        }
+                    })
                     .show();
         } else if (selectClass.equals("")) {
             ab.setMessage("상담희망전공을 선택해주세요.");

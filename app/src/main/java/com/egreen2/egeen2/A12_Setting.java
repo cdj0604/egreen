@@ -45,7 +45,7 @@ public class A12_Setting extends AppCompatActivity {
     private static final String MAIN_LIST = "mainList";
     private static final String OVERLAP = "overlap";
     private static final String LOGOUT = "logout";
-    String storeVersion = "2.0.0", appVersion = ""; //storeVersion 은 업데이트시 수기로 수정
+
     PackageInfo packageInfo = null;
     TextView name, number, nowAppVersion, LatestAppVersion;
     StudyInfo si;
@@ -95,6 +95,7 @@ public class A12_Setting extends AppCompatActivity {
 
         final Switch sw = findViewById(R.id.switch2);
         final Switch sw1 = findViewById(R.id.switch1);
+   //     final Switch sw3 = findViewById(R.id.switch3);
         name = findViewById(R.id.a12_name);
         number = findViewById(R.id.a12_number);
         button = findViewById(R.id.button2);
@@ -103,7 +104,6 @@ public class A12_Setting extends AppCompatActivity {
         LatestAppVersion = findViewById(R.id.LatestVersion);
 
 
-        sw1.setChecked(true);
         /* Toolbar */
         Toolbar toolbar = findViewById(R.id.a12_toolbar);
         setSupportActionBar(toolbar);
@@ -128,6 +128,7 @@ public class A12_Setting extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        String storeVersion = getString(R.string.store);
         String versionName = packageInfo.versionName; //현재 버전 저장
         TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
         TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
@@ -139,9 +140,9 @@ public class A12_Setting extends AppCompatActivity {
         LatestAppVersion.setText("최신 앱 버전 : " + storeVersion);
 
 
-        //저장된 유저이름과 학번을 가져와서 네비게이션 헤더에 출력
         SharedPreferences sharedPreferences = getSharedPreferences("LOGIN_INFO", MODE_PRIVATE);
         SharedPreferences sharedPreferences1 = getSharedPreferences("re", MODE_PRIVATE);
+        SharedPreferences sharedPreferences2 = getSharedPreferences("push", MODE_PRIVATE);
 
         String userName = sharedPreferences.getString("userName", ""); //유저이름저장
         String StudentID = sharedPreferences.getString("UID", ""); //유저학번저장
@@ -157,9 +158,12 @@ public class A12_Setting extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("autologin", 0); //자동 로그인 설정 값 저장 (스위치 체크여부)
         sharedPreferences1 = getSharedPreferences("re", 0); //다시 보지 않기 설정 값 저장 (스위치 체크여부)
+        sharedPreferences2 = getSharedPreferences("push", 0); //다시 보지 않기 설정 값 저장 (스위치 체크여부)
 
+        //저장된 값 가져오기
         int a = sharedPreferences.getInt("login", 0);
         int a1 = sharedPreferences1.getInt("다시보지않기", 0);
+        int a2 = sharedPreferences2.getInt("push", 0);
 
 
         /*ContentValues cValue = new ContentValues();
@@ -310,11 +314,11 @@ public class A12_Setting extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 if (isChecked) {
                     editor.putInt("login", 1);
-                    editor.commit();
+                    editor.apply();
                     sw.setChecked(true);
                 } else {
                     editor.putInt("login", 2);
-                    editor.commit();
+                    editor.apply();
                     sw.setChecked(false);
                 }
             }
@@ -330,15 +334,36 @@ public class A12_Setting extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 if (isChecked) {
                     editor.putInt("다시보지않기", 2);
-                    editor.commit();
+                    editor.apply();
                     sw1.setChecked(true);
                 } else {
                     editor.putInt("다시보지않기", 1);
-                    editor.commit();
+                    editor.apply();
                     sw1.setChecked(false);
                 }
             }
         });
+
+        /**
+         * 스위치 on/off에 따른 자동 로그인
+         * 스위치 on일때 1의값 저장 off일때 2의값 저장
+         */
+       /* sw3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences sharedPreferences = getSharedPreferences("push", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                if (isChecked) {
+                    editor.putInt("push", 1);
+                    editor.commit();
+                    sw3.setChecked(true);
+                } else {
+                    editor.putInt("push", 2);
+                    editor.commit();
+                    sw3.setChecked(false);
+                }
+            }
+        });*/
 
 
         if (a == 1) {
@@ -347,7 +372,14 @@ public class A12_Setting extends AppCompatActivity {
             sw.setChecked(false);
         }
 
+        /*if (a2 == 1){
+            sw3.setChecked(true);
+        } else if (a2 == 2) {
+            sw3.setChecked(false);
+        }*/
         sw1.setChecked(a1 == 2);
+
+
     }   //onCreate 종료
 
     public void go_A06_consultingT(View view) {     //학습상담 및 설계 전화

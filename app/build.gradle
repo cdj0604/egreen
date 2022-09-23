@@ -8,7 +8,7 @@ android {
         applicationId "com.egreen2.egeen2"
         minSdkVersion 24
         targetSdkVersion 31
-        versionCode 4
+        versionCode 5
         versionName "2.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

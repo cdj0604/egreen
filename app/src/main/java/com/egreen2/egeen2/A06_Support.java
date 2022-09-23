@@ -73,7 +73,7 @@ public class A06_Support extends AppCompatActivity {
         /**
          * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
          */
-        String storeVersion = "2.0.0"; //storeVersion 은 업데이트시 수기로 수정
+        String storeVersion = getString(R.string.store); //storeVersion 은 업데이트시 수기로 수정
         PackageInfo packageInfo = null;
         try {
             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);

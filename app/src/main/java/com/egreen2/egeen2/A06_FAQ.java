@@ -1,8 +1,10 @@
 package com.egreen2.egeen2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -19,7 +21,8 @@ public class A06_FAQ extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a06_faq);
-
+        //로고클릭
+        ImageView imageView = findViewById(R.id.logo1);
 
 
 
@@ -39,6 +42,13 @@ public class A06_FAQ extends AppCompatActivity {
         a7 = findViewById(R.id.a7);
         a8 = findViewById(R.id.a8);
 
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

@@ -5,7 +5,10 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -27,6 +30,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,6 +62,8 @@ public class A05_NoticeBoard extends AppCompatActivity implements NetworkAsyncTa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a05_notice_board);
+
+
 
         /* Toolbar */
         Toolbar toolbar = findViewById(R.id.a05_toolbar);
@@ -93,6 +99,21 @@ public class A05_NoticeBoard extends AppCompatActivity implements NetworkAsyncTa
         head_name.setText(userName + "님");
         head_studentid.setText(StudentID);
 
+        /**
+         * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
+         */
+        String storeVersion = getString(R.string.store); //storeVersion 은 업데이트시 수기로 수정
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String versionName = packageInfo.versionName; //현재 버전 저장
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
+        AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
        /* ContentValues cValue = new ContentValues();
         cValue.put("userid", id);
         String url = "http://cb.egreen.co.kr/mobilee_proc/join/join_proc_m2.asp";
@@ -104,6 +125,7 @@ public class A05_NoticeBoard extends AppCompatActivity implements NetworkAsyncTa
         if (netCheck.isConnectionNet()) {
             init();
         } else {
+            Alert();
             Toast.makeText(A05_NoticeBoard.this, "네트워크 연결 실패", Toast.LENGTH_SHORT).show();
         }
 
@@ -278,6 +300,22 @@ public class A05_NoticeBoard extends AppCompatActivity implements NetworkAsyncTa
         }
 //        finish();
 
+    }
+
+    private void Alert() {
+        AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        ab.setCancelable(false);
+        ab.setMessage("네트워크 연결이 끊켰습니다. 네트워크 연결상태를 확인해주세요.");
+        ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                moveTaskToBack(true);
+                finishAndRemoveTask();
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        }).show();
     }
 
     private void parsing_json(String result) {

@@ -8,6 +8,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.28125" />
         <entry key="../../Library/Android/sdk/platforms/android-30/data/res/layout/simple_spinner_dropdown_item.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/drawable-v24/ed.xml" value="0.33697916666666666" />
         <entry key="app/src/main/res/drawable-v24/ed100.xml" value="0.1965" />
@@ -61,6 +62,7 @@
         <entry key="app/src/main/res/layout/a06_support.xml" value="0.36684782608695654" />
         <entry key="app/src/main/res/layout/a06_telephone.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/a07_apply_g.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/a07_apply_g_sub.xml" value="0.22274476271911073" />
         <entry key="app/src/main/res/layout/a07_certification_g.xml" value="0.3695652173913043" />
         <entry key="app/src/main/res/layout/a07_certification_g_sub.xml" value="0.3695652173913043" />
         <entry key="app/src/main/res/layout/a07_guide.xml" value="0.33" />

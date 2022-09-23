@@ -6,6 +6,8 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -71,7 +73,7 @@ public class A08_Curriculum extends AppCompatActivity {
         /* WebView 설정 */
         webView.setWebViewClient(new WebBrowserClient());
         webView.getSettings().setJavaScriptEnabled(true);
-      //  webView.setWebViewClient(new WebViewClientClass());
+        //  webView.setWebViewClient(new WebViewClientClass());
         webView.loadUrl("https://mcb.egreen.co.kr/m/default_m.asp");
 
 
@@ -132,6 +134,22 @@ public class A08_Curriculum extends AppCompatActivity {
         head_name.setText(userName + "님");
         head_studentid.setText(StudentID);
 
+        /**
+         * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
+         */
+        String storeVersion = getString(R.string.store); //storeVersion 은 업데이트시 수기로 수정
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String versionName = packageInfo.versionName; //현재 버전 저장
+        TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
+        TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
+        AppVersion.setText(versionName);
+        StroeVersion.setText(storeVersion);
+
         id = StudentID;
         loginNumber = si.getLoginNumber();
 
@@ -173,10 +191,6 @@ public class A08_Curriculum extends AppCompatActivity {
         });
 
     } //onCreate 종료
-
-    public class WebViewClientClass extends WebViewClient {
-
-    }
 
     public void go_logout(View view) {
         //다이얼로그 예 눌렀을때 인텐트실행
@@ -263,6 +277,10 @@ public class A08_Curriculum extends AppCompatActivity {
 
     }
 
+    public class WebViewClientClass extends WebViewClient {
+
+    }
+
     public class WebBrowserClient extends WebViewClient {
 
         //웹뷰 내 페이지 이동 가능
@@ -327,7 +345,6 @@ public class A08_Curriculum extends AppCompatActivity {
                 }
             }
         }
-
 
 
     }

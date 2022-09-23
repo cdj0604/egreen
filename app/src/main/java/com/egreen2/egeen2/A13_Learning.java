@@ -37,7 +37,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
+//네트워크 연결이 끊키면 튕긴다, 끊켰을때의 이벤트는 작동함
 
 public class A13_Learning extends AppCompatActivity implements NetworkAsyncTasker.AsyncResponse {
     public static final String WIFI_STATE = "WIFE";

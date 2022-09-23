@@ -4,24 +4,33 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 
+import com.google.firebase.crashlytics.internal.model.CrashlyticsReport;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import androidx.core.app.NotificationCompat;
 
+/**
+ * FCM 푸쉬알림 구현
+ */
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+
+
         if (remoteMessage != null && remoteMessage.getData().size() > 0) {
             sendNotification(remoteMessage);
         }
+
     }
 
     private void sendNotification(RemoteMessage remoteMessage) {
-
         String title = remoteMessage.getData().get("title");
         String message = remoteMessage.getData().get("message");
 
@@ -55,10 +64,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             builder.setVibrate(new long[]{500, 500});
         }
         mManager.notify(0, builder.build());
+
+
     }
 
     @Override
+
     public void onNewToken(String s) {
-        super.onNewToken(s);
+       super.onNewToken(s);
     }
 }

@@ -81,7 +81,7 @@ public class before_Main extends AppCompatActivity {
         /**
          * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
          */
-        String storeVersion = "2.0.0"; //storeVersion 은 업데이트시 수기로 수정
+        String storeVersion = getString(R.string.store); //storeVersion 은 업데이트시 수기로 수정
         PackageInfo packageInfo = null;
         try {
             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -109,7 +109,7 @@ public class before_Main extends AppCompatActivity {
                  * 드로어 레이아웃 메뉴
                  */
                 if (id == R.id.home) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), before_Main.class);
                     startActivity(intent);
 
                 } else if (id == R.id.noticeboard) {
@@ -187,7 +187,6 @@ public class before_Main extends AppCompatActivity {
     }
 
     private void A09_Intent() {     //나의 강의실 페이지로 이동
-
         loginAlert();
         //  Intent intent = new Intent(getApplicationContext(), A09_Classroom.class);
         //  startActivity(intent);

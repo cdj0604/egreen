@@ -67,7 +67,9 @@ public class A00_SplashScreen extends AppCompatActivity {
 
         //업데이트시 스토어버전 수정
         //스토어에 올릴 버전 직접 수정 (gradle 버전과 맞추기)
-        storeVersion = "2.0.0";
+       // storeVersion = "2.0.0";
+        storeVersion = getString(R.string.store);
+        Log.d("storeVersion",storeVersion);
 
         if (!versionName.equals(storeVersion)) {
             android.app.AlertDialog.Builder ab1 = new android.app.AlertDialog.Builder(this);
@@ -313,6 +315,7 @@ public class A00_SplashScreen extends AppCompatActivity {
         }
 
         versionName = packageInfo.versionName;
+        Log.d("versionName ====> ",versionName);
 
     }
 

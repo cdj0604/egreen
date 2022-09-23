@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,12 +25,15 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.egreen2.egeen2.Data.StudyInfo;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.File;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -46,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOGOUT = "logout";
     private final Context context = this;
     // ** View 변수 선언 **
-    String storeVersion = "2.0.0", appVersion = ""; //storeVersion 은 업데이트시 수기로 수정
     ViewFlipper a1_bannerFlipper;   // 배너
     ImageView a1_bannerImg1, a1_bannerImg2, a1_bannerImg3;  // Flipper에 들어가는 이미지
     PackageInfo packageInfo = null;
@@ -64,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //비정상종료 테스트
         //파이어베이스 stop 프로젝트에 오류보고서 확인. 필요시 버튼생성후 주석제거
        /* Button btn_stop = (Button)findViewById(R.id.btn_stop);
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 메뉴 버튼 만들기
         actionBar.setHomeAsUpIndicator(R.drawable.menu); //메뉴 버튼 이미지 지정
-
+        String storeVersion = getString(R.string.store);
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -196,6 +198,32 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG, "A2_Login 에서 전달 받은 =====> 없음");
         }*/
 
+
+        //앱 최초 실행시 설정-알림스위치의 기본상태를 on 상태로 하기위함.
+        //파일이 없다면 파일 생성
+            String filePath = Environment.getDataDirectory() + "/data/com.egreen2.egeen2/shared_prefs/re.xml";
+            String filePath2 = Environment.getDataDirectory() + "/data/data/com.egreen2.egeen2/shared_prefs/push.xml";
+            Log.d("filePath",filePath);
+
+            File file = new File(filePath);
+            if (file.exists())  {
+                Log.d("TAG","파일이 존재함");
+            }
+
+           if (!file.exists()) {
+               SharedPreferences sharedPreferences2 = getSharedPreferences("re", MODE_PRIVATE);
+               SharedPreferences.Editor editor = sharedPreferences2.edit();
+               editor.putInt("다시보지않기",2);
+               editor.apply();
+               Log.d("TAG","파일이 존재하지 않아 생성함");
+
+            }
+
+          /*  File file2 = new File(filePath2);
+            if (!file2.exists()) {
+
+            }*/
+
         SharedPreferences sharedPreferences1 = getSharedPreferences("login", MODE_PRIVATE);
         int a = sharedPreferences1.getInt("aaa", 0);
 
@@ -206,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         // ** 배너 **
-        showBanner();
+           showBanner();
     }
 
 

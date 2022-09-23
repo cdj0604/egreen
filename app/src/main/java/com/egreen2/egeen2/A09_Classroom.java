@@ -180,7 +180,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
         /**
          * 스토어버전 , 현재버전 가져오기 -> 네비게이션 헤더에 뿌리기
          */
-        String storeVersion = "2.0.0"; //storeVersion 은 업데이트시 수기로 수정
+        String storeVersion = getString(R.string.store); //storeVersion 은 업데이트시 수기로 수정
         PackageInfo packageInfo = null;
         try {
             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -365,7 +365,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                     //  앱 출시시에는 이코드
                     overlap_proc(result);
 
-                      //  checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+                    //  checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
             dialog.setCancelable(false);

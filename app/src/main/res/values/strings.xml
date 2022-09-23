@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">e그린원격평생교육원</string>
 
+    <!--업데이트시 수기로 gralde의 versionName 과 일치하게 맞춰야 함-->
+    <string name="store">2.0.0</string>
+
     <string name="default_notification_channel_id">Channel ID</string>
 
     <string name="default_notification_channel_name" translatable="true">Test</string>

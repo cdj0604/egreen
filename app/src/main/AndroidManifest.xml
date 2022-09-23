@@ -9,8 +9,14 @@
 
     </queries>
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE">
+
+    </uses-permission>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- 알림 허용 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 허용 -->
-    <uses-permission android:name="android.permission.CALL_PHONE"/> <!-- 전화걸기 허용 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 전화걸기 허용 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 3g/4g 상태 접근 허용 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- wifi 상태 접근 허용 -->
     <!--uses-permission android:name="android.permission.READ_PHONE_STATE" /--> <!-- 일련번호를 가져오기 위한 권한 허용 -->
@@ -87,10 +93,11 @@
         <activity android:name=".before_Main"></activity>
         <activity android:name=".StudyAgreement"></activity>
         <activity android:name=".Survey"></activity>
+
         <service
             android:name=".MyFirebaseMessagingService"
-            android:stopWithTask="false"
-            android:exported="true">
+            android:exported="true"
+            android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
