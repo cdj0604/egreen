@@ -95,7 +95,7 @@ public class A12_Setting extends AppCompatActivity {
 
         final Switch sw = findViewById(R.id.switch2);
         final Switch sw1 = findViewById(R.id.switch1);
-   //     final Switch sw3 = findViewById(R.id.switch3);
+        //     final Switch sw3 = findViewById(R.id.switch3);
         name = findViewById(R.id.a12_name);
         number = findViewById(R.id.a12_number);
         button = findViewById(R.id.button2);

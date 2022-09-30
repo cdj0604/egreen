@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -152,6 +153,12 @@ public class A06_Support extends AppCompatActivity {
 
     public void go_A06_QuickAdvice(View view) { //빠른상담 페이지로 이동
         Intent intent = new Intent(getApplicationContext(), A06_QuickAdvice.class);
+        startActivity(intent);
+
+    }
+
+    public void go_A06_Kakao(View view) { //카카오플러스친구 페이지로 이동
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://pf.kakao.com/_huVCxj/chat"));
         startActivity(intent);
 
     }

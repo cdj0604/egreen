@@ -4,11 +4,8 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Build;
 
-import com.google.firebase.crashlytics.internal.model.CrashlyticsReport;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -71,6 +68,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
 
     public void onNewToken(String s) {
-       super.onNewToken(s);
+        super.onNewToken(s);
     }
 }

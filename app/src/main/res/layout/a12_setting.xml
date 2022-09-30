@@ -164,8 +164,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
-                            android:text="자동로그인"
                             android:layout_marginTop="3dp"
+                            android:text="자동로그인"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -193,8 +193,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="15dp"
-                            android:text="이동통신망 사용 알림"
                             android:layout_marginTop="3dp"
+                            android:text="이동통신망 사용 알림"
                             android:textColor="@color/black" />
                     </LinearLayout>
 
@@ -235,34 +235,32 @@
 
                  </LinearLayout>-->
 
-                 <LinearLayout
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="10dp"
-                     android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-                     <LinearLayout
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-                         <TextView
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center_vertical"
-                             android:layout_marginLeft="15dp"
-                             android:layout_marginTop="10dp"
-                             android:layout_marginBottom="10dp"
-                             android:text="(푸시알림 거부 : 설정-e그린앱-알림거부)"
-                             android:textColor="@color/gray" />
-                     </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="(푸시알림 거부 : 설정-e그린앱-알림거부)"
+                            android:textColor="@color/gray" />
+                    </LinearLayout>
 
 
-
-                 </LinearLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
-
 
 
             <LinearLayout

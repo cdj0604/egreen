@@ -33,7 +33,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -201,23 +200,23 @@ public class MainActivity extends AppCompatActivity {
 
         //앱 최초 실행시 설정-알림스위치의 기본상태를 on 상태로 하기위함.
         //파일이 없다면 파일 생성
-            String filePath = Environment.getDataDirectory() + "/data/com.egreen2.egeen2/shared_prefs/re.xml";
-            String filePath2 = Environment.getDataDirectory() + "/data/data/com.egreen2.egeen2/shared_prefs/push.xml";
-            Log.d("filePath",filePath);
+        String filePath = Environment.getDataDirectory() + "/data/com.egreen2.egeen2/shared_prefs/re.xml";
+        String filePath2 = Environment.getDataDirectory() + "/data/data/com.egreen2.egeen2/shared_prefs/push.xml";
+        Log.d("filePath", filePath);
 
-            File file = new File(filePath);
-            if (file.exists())  {
-                Log.d("TAG","파일이 존재함");
-            }
+        File file = new File(filePath);
+        if (file.exists()) {
+            Log.d("TAG", "파일이 존재함");
+        }
 
-           if (!file.exists()) {
-               SharedPreferences sharedPreferences2 = getSharedPreferences("re", MODE_PRIVATE);
-               SharedPreferences.Editor editor = sharedPreferences2.edit();
-               editor.putInt("다시보지않기",2);
-               editor.apply();
-               Log.d("TAG","파일이 존재하지 않아 생성함");
+        if (!file.exists()) {
+            SharedPreferences sharedPreferences2 = getSharedPreferences("re", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences2.edit();
+            editor.putInt("다시보지않기", 2);
+            editor.apply();
+            Log.d("TAG", "파일이 존재하지 않아 생성함");
 
-            }
+        }
 
           /*  File file2 = new File(filePath2);
             if (!file2.exists()) {
@@ -234,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         // ** 배너 **
-           showBanner();
+        showBanner();
     }
 
 
