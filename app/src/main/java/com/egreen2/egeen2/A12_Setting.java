@@ -128,7 +128,8 @@ public class A12_Setting extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        String storeVersion = getString(R.string.store);
+        SharedPreferences sharedPreferences5 = getSharedPreferences("UPDATE_VERSION", MODE_PRIVATE);
+        String storeVersion = sharedPreferences5.getString("StoreVersion", "");
         String versionName = packageInfo.versionName; //현재 버전 저장
         TextView AppVersion = navigationView.getHeaderView(0).findViewById(R.id.AppVersion);
         TextView StroeVersion = navigationView.getHeaderView(0).findViewById(R.id.StroeVersion);
@@ -136,6 +137,7 @@ public class A12_Setting extends AppCompatActivity {
         StroeVersion.setText(storeVersion);
 
         //최신 앱 버전은 배포후 스토어 링크를 통해 가져와야함 ( 업데이트시에 추가 )
+
         nowAppVersion.setText("현재 앱 버전 : " + versionName);
         LatestAppVersion.setText("최신 앱 버전 : " + storeVersion);
 

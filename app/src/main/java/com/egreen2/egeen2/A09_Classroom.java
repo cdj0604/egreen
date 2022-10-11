@@ -363,9 +363,9 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                 public void onClick(View view) {
                     dialog.dismiss(); // 다이얼로그 닫기
                     //  앱 출시시에는 이코드
-                 //   overlap_proc(result);
+                    overlap_proc(result);
 
-                      checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+                    //   checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
             dialog.setCancelable(false);

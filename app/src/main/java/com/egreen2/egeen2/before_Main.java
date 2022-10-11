@@ -1,8 +1,10 @@
 package com.egreen2.egeen2;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -19,7 +21,13 @@ import android.widget.ViewFlipper;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.egreen2.egeen2.Data.StudyInfo;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.UpdateAvailability;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -39,6 +47,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class before_Main extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private final Context context = this;
+    int UPDATE_REQUEST_CODE = 400;
     // ** View 변수 선언 **
     ViewFlipper a1_bannerFlipper;   // 배너
     ImageView a1_bannerImg1, a1_bannerImg2, a1_bannerImg3;  // Flipper에 들어가는 이미지
@@ -50,11 +59,17 @@ public class before_Main extends AppCompatActivity {
     private long backKeyPressedTime = 0;
     private DrawerLayout mDrawerLayout;
 
+    public static void goMarket(Activity caller, String packageName) {
+        Uri uri = Uri.parse("market://details?id=" + packageName);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        caller.startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.before_main);
-
+        updaterequest();
 
         SharedPreferences sharedPreferences1 = getSharedPreferences("login", MODE_PRIVATE);
         int a = sharedPreferences1.getInt("aaa", 0);
@@ -94,6 +109,44 @@ public class before_Main extends AppCompatActivity {
         AppVersion.setText(versionName);
         StroeVersion.setText(storeVersion);
         //
+
+        //스토어버전 값 가져오기
+        SharedPreferences sharedPreferences5 = getSharedPreferences("UPDATE_VERSION", MODE_PRIVATE);
+        String StoreVersion = sharedPreferences5.getString("StoreVersion", ""); //유저이름
+
+        //아래 스토어버전은 서버단에서 수기로 수정해준다
+        if (!StoreVersion.equals(versionName)) {
+            //최신버전이 아닐때
+            AlertDialog.Builder builder = new AlertDialog.Builder(before_Main.this);
+
+            builder.setMessage("*업데이트 알림*\n새로운 버전이 업데이트 되었습니다.");
+
+            builder.setPositiveButton("업데이트", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            goMarket(before_Main.this, "com.egreen2.egeen2");
+                        }
+                    })
+                    .setCancelable(false);
+
+
+            builder.setNegativeButton("그냥쓸게요", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(before_Main.this);
+                    builder1.setMessage("최신버전이 아닐 시 오류가 발생할 수 있습니다.");
+                    builder1.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    builder1.show();
+                }
+            }).setCancelable(false);
+
+            builder.show();
+        }
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -154,12 +207,35 @@ public class before_Main extends AppCompatActivity {
 
     }
 
+    // 인앱 강제 업데이트
+    private void updaterequest() {
+        AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
+        Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+
+        appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
+                    && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                Log.d("WTF", "updaterequest:업데이트할 수 있음 ");
+                try {
+                    appUpdateManager.startUpdateFlowForResult(
+                            appUpdateInfo,
+                            AppUpdateType.IMMEDIATE,
+                            this,
+                            UPDATE_REQUEST_CODE);
+                    Log.d("WTF", "updaterequest:업데이트 요청함 ");
+                } catch (IntentSender.SendIntentException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                Log.d("WTF", "updaterequest:업데이트할 것이 없음 ");
+            }
+        });
+    }
 
     private void init() {
         // ** 배너 **
         showBanner();
     }
-
 
     /**
      * 인텐트 모음
@@ -302,7 +378,6 @@ public class before_Main extends AppCompatActivity {
     public void go_A02_Login(View view) {
         A02_Intent();
     }         //로그인 버튼 클릭
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

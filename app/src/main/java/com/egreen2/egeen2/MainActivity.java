@@ -1,7 +1,7 @@
 package com.egreen2.egeen2;
 
+import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.egreen2.egeen2.Data.StudyInfo;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.play.core.appupdate.AppUpdateManager;
 
 import java.io.File;
 
@@ -47,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final String OVERLAP = "overlap";
     private static final String LOGOUT = "logout";
-    private final Context context = this;
+    private static final int MY_REQUEST_CODE = 366;
+    int REQUEST_CODE = 366;
+    // private final Context context = this;
     // ** View 변수 선언 **
     ViewFlipper a1_bannerFlipper;   // 배너
     ImageView a1_bannerImg1, a1_bannerImg2, a1_bannerImg3;  // Flipper에 들어가는 이미지
@@ -55,17 +58,28 @@ public class MainActivity extends AppCompatActivity {
     String id;
     String userName;
     String loginNumber;
+    String version;
     StudyInfo si;
     boolean _isNeedCertyLogin, saveLoginData;
     NetworkStateCheck netCheck;
     NetworkAsyncTasker asyncTask;
     private long backKeyPressedTime = 0;
     private DrawerLayout mDrawerLayout;
+    private AppUpdateManager mAppUpdateManager;
+
+    public static void goMarket(Activity caller, String packageName) {
+        Uri uri = Uri.parse("market://details?id=" + packageName);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        caller.startActivity(intent);
+    }
+
+    //oncreate 종료
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //비정상종료 테스트
         //파이어베이스 stop 프로젝트에 오류보고서 확인. 필요시 버튼생성후 주석제거
        /* Button btn_stop = (Button)findViewById(R.id.btn_stop);
@@ -75,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
                 throw new IllegalStateException("Firebase Crash Test");
             }
         });*/
+
+
+
+
 
 
         /* Toolbar */
@@ -183,11 +201,51 @@ public class MainActivity extends AppCompatActivity {
         }
         String versionName = packageInfo.versionName; //현재 버전 저장
         int versionCode = packageInfo.versionCode;
-        Log.d("versionName", versionName);
+        Log.d("versionName", "a" + versionName + "a");
         Log.d("versionCode", String.valueOf(versionCode));
         AppVersion.setText(versionName);
         StroeVersion.setText(storeVersion);
 
+
+        //스토어버전 값 가져오기
+        SharedPreferences sharedPreferences5 = getSharedPreferences("UPDATE_VERSION", MODE_PRIVATE);
+        String StoreVersion = sharedPreferences5.getString("StoreVersion", ""); //유저이름
+        // Log.d("123", "a" + StoreVersion+"a");
+
+
+        //아래 스토어버전은 서버단에서 수기로 수정해준다
+        if (!StoreVersion.equals(versionName)) {
+            //최신버전이 아닐때
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+            builder.setMessage("*업데이트 알림*\n새로운 버전이 업데이트 되었습니다.");
+
+            builder.setPositiveButton("업데이트", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            goMarket(MainActivity.this, "com.egreen2.egeen2");
+                        }
+                    })
+                    .setCancelable(false);
+
+
+            builder.setNegativeButton("그냥쓸게요", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                    builder1.setMessage("최신버전이 아닐 시 오류가 발생할 수 있습니다.");
+                    builder1.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    builder1.show();
+                }
+            }).setCancelable(false);
+
+            builder.show();
+        }
 
        /* try {
             Log.i(TAG, "A2_Login 에서 전달 받은 =====> " + si.getUserId());
@@ -228,14 +286,15 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("aaa는", String.valueOf(a));
 
+
     }
-    //oncreate 종료
+
+    // 인앱 강제 업데이트
 
     private void init() {
         // ** 배너 **
         showBanner();
     }
-
 
     /**
      * Activity 를 이동한다.
