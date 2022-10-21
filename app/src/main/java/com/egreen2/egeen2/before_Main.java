@@ -69,8 +69,6 @@ public class before_Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.before_main);
-        updaterequest();
-
         SharedPreferences sharedPreferences1 = getSharedPreferences("login", MODE_PRIVATE);
         int a = sharedPreferences1.getInt("aaa", 0);
 
@@ -207,30 +205,6 @@ public class before_Main extends AppCompatActivity {
 
     }
 
-    // 인앱 강제 업데이트
-    private void updaterequest() {
-        AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(getApplicationContext());
-        Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
-
-        appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
-            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                    && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
-                Log.d("WTF", "updaterequest:업데이트할 수 있음 ");
-                try {
-                    appUpdateManager.startUpdateFlowForResult(
-                            appUpdateInfo,
-                            AppUpdateType.IMMEDIATE,
-                            this,
-                            UPDATE_REQUEST_CODE);
-                    Log.d("WTF", "updaterequest:업데이트 요청함 ");
-                } catch (IntentSender.SendIntentException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Log.d("WTF", "updaterequest:업데이트할 것이 없음 ");
-            }
-        });
-    }
 
     private void init() {
         // ** 배너 **

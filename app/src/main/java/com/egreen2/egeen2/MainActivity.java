@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
         //스토어버전 값 가져오기
         SharedPreferences sharedPreferences5 = getSharedPreferences("UPDATE_VERSION", MODE_PRIVATE);
-        String StoreVersion = sharedPreferences5.getString("StoreVersion", ""); //유저이름
+        String StoreVersion = sharedPreferences5.getString("StoreVersion", ""); //
         // Log.d("123", "a" + StoreVersion+"a");
 
 
