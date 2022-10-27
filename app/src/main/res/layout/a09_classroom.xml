@@ -14,12 +14,17 @@
         android:layout_height="match_parent"
         android:background="#F2F5F6">
 
+
+
         <View
             android:id="@+id/a05_view_toolbar"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/a09_toolbar"
             android:background="#dfe4e6" />
+
+
+
 
         <!--
         <LinearLayout
@@ -43,6 +48,7 @@
         </LinearLayout>
 
         -->
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/a09_toolbar"
             android:layout_width="match_parent"
@@ -99,13 +105,7 @@
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-            <TextView
-                android:id="@+id/result_text"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:text="123123123"
-                android:textColor="#ffffffff"></TextView>
+
         </LinearLayout>
     </RelativeLayout>
 
@@ -117,4 +117,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/navi_header"
         app:menu="@menu/navi_menu" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

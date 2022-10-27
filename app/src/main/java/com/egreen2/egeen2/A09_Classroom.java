@@ -64,7 +64,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     private static final String OVERLAP = "overlap";
     private static final String LOGOUT = "logout";
     /* 공인인증서 변수 */
-    private final String appKey = "OvRMXIzt8cX3lCHJukyLfg==";     //테스트 라이센스 10/31 (배포전 정식 라이선스 발급 요청)
+    private final String appKey = "LW1lPhtSd/lYypsZlpqwTw==";     //테스트 라이센스 10/31 (배포전 정식 라이선스 발급 요청)
     private final String[] rtnParams = {"a", "b", "c"};
     ArrayList<A09_MyClassListData> data;
     RecyclerView myClassList;
@@ -91,6 +91,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     // private final String appKey = "hToVAEsOMbTR80ZJqJrQIuGBBDCl7bEiw9fi+9qaka8=";     //2.0 버전의 app 라이선스
     // w7bZQyyZVmN82xdvTdD5P8L/qwPJm0ffOpRuqABiaXY= 기존 버전 앱의 라이선스
     private TextView result_text;
+
 
     //한국전자인증 공인인증센터 App 설치
     public static void searchMarket(Activity caller, String packagename) {
@@ -122,7 +123,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a09_classroom);
-        //  doLicense();
+         // doLicense();
         /* Toolbar */
         Toolbar toolbar = findViewById(R.id.a09_toolbar);
         setSupportActionBar(toolbar);
@@ -147,16 +148,16 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
 
         // Button button = (Button)findViewById(R.id.button);
 
-        /*앱 라이센스 정보를 얻기위한 코드 추후 삭제or주석처리
-        button.setOnClickListener(new View.OnClickListener() {
+        //앱 라이센스 정보를 얻기위한 코드 추후 삭제or주석처리
+     /*   button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 doLicense();
                 result_text.setText("");
             }
-        });
+        });*/
 
-*/
+
 
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -365,7 +366,7 @@ public class A09_Classroom extends AppCompatActivity implements View.OnClickList
                     //  앱 출시시에는 이코드
                     overlap_proc(result);
 
-                  //     checkDong_Servey(); //공인인증서 무시하고 강의실 진입
+                  //checkDong_Servey(); //공인인증서 무시하고 강의실 진입
                 }
             });
             dialog.setCancelable(false);

@@ -47,9 +47,9 @@ public class A12_Setting extends AppCompatActivity {
     private static final String LOGOUT = "logout";
 
     PackageInfo packageInfo = null;
-    TextView name, number, nowAppVersion, LatestAppVersion;
+    TextView name, number, nowAppVersion, LatestAppVersion,result_text;
     StudyInfo si;
-    Button button, updatebtn;
+    Button button, updatebtn, li_button;
     String versionName;
     int versionCode;
     String id;
@@ -102,6 +102,18 @@ public class A12_Setting extends AppCompatActivity {
         updatebtn = findViewById(R.id.button3);
         nowAppVersion = findViewById(R.id.nowAppVersion);
         LatestAppVersion = findViewById(R.id.LatestVersion);
+        //공인인증서 라이센스 확인용 선언
+      /*  result_text=(TextView)findViewById(R.id.result_text);
+        li_button = (Button)findViewById(R.id.button);*/
+
+        //앱 라이센스 정보를 얻기위한 코드 추후 삭제or주석처리
+     /*   li_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doLicense();
+                result_text.setText("");
+            }
+        });*/
 
 
         /* Toolbar */
@@ -466,6 +478,17 @@ public class A12_Setting extends AppCompatActivity {
 
     }
 
+    /*
+     * 라이선스 등록을 위해 꼭 실행하여야 함.
+     */
+    private void doLicense() {
+        //라이선스 정보 추출
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("crosscert://licenseinfo"));
+        intent.putExtra("requestCode", 2);
+        startActivityForResult(intent, 2);
+
+    }
 
     private void moveActivity(Class activity) {
         StudyInfo si = new StudyInfo();
