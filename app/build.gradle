@@ -8,7 +8,7 @@ android {
         applicationId "com.egreen2.egeen2"
         minSdkVersion 24
         targetSdkVersion 31
-        versionCode 221013
+        versionCode 221027
         versionName "2.0.0" //업데이트 배포시 values/string , 파일서버/Real_Contents/test/list.html 에 코드 수정
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true

@@ -294,7 +294,7 @@ public class before_Main extends AppCompatActivity {
         a1_bannerImg3 = findViewById(R.id.a1_banner_Img3);  // 배너 이미지3
 
         Glide.with(this)
-                .load("http://cb.egreen.co.kr/banner/images/image01.jpg")
+                .load("http://cb.egreen.co.kr/banner/images/image011.jpg")
                 .skipMemoryCache(true)                              //메모리 캐싱 끄기
                 .diskCacheStrategy(DiskCacheStrategy.NONE)      //변형된 이미지만 캐싱
                 .into(a1_bannerImg1);
