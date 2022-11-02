@@ -175,7 +175,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="(필수) 개인정보 수집 및 이용동" />
+                        android:text="(필수) 개인정보 수집 및 이용동의" />
 
                     <TextView
                         android:id="@+id/a03_terms2_text"
